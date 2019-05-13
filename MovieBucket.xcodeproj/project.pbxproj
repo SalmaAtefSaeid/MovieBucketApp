@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */; };
 		8BE34FA2F45F6EF8D910F596 /* Pods_MovieBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */; };
 		BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77122883C700014EAF3 /* AppDelegate.swift */; };
 		BAF8E77422883C700014EAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77322883C700014EAF3 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E76E22883C6F0014EAF3 /* MovieBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E77122883C700014EAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +52,15 @@
 				CFB48CA29643B898544DA8B9 /* Pods-MovieBucket.debug.xcconfig */,
 				DB2666ECA80E456B60EE91E6 /* Pods-MovieBucket.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		4AD7EECC2289BE7A00B36B04 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		964057D15E3EF3B824B4988D /* Frameworks */ = {
@@ -115,6 +124,7 @@
 		BAF8E78A22884C190014EAF3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4AD7EECC2289BE7A00B36B04 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -241,6 +251,7 @@
 			files = (
 				BAF8E77422883C700014EAF3 /* ViewController.swift in Sources */,
 				BAF8E77A22883C700014EAF3 /* MovieBucket.xcdatamodeld in Sources */,
+				4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */,
 				BAF8E7882288492C0014EAF3 /* Movie.swift in Sources */,
 				BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */,
 			);
