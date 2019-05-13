@@ -1,0 +1,6 @@
+framework module Pods_MovieBucket {
+  umbrella header "Pods-MovieBucket-umbrella.h"
+
+  export *
+  module * { export * }
+}
