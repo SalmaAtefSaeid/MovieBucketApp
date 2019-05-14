@@ -115,6 +115,9 @@
 		BAF8E78922884C0B0014EAF3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DEACA863228AB19000632BD4 /* favourites */,
+				DEACA862228AB12400632BD4 /* home */,
+				DEACA861228AB10900632BD4 /* movieDetails */,
 				BAF8E77522883C700014EAF3 /* Main.storyboard */,
 				BAF8E77322883C700014EAF3 /* ViewController.swift */,
 			);
@@ -127,6 +130,27 @@
 				4AD7EECC2289BE7A00B36B04 /* Networking */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DEACA861228AB10900632BD4 /* movieDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = movieDetails;
+			sourceTree = "<group>";
+		};
+		DEACA862228AB12400632BD4 /* home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		DEACA863228AB19000632BD4 /* favourites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = favourites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

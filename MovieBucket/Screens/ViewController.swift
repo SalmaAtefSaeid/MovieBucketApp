@@ -41,7 +41,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func selectedChoices(_ sender: UIButton) {
-        guard let title = sender.currentTitle , let menuChoice = choices(rawValue:title)else{
+        guard let title = sender.currentTitle , let menuChoice = choices(rawValue:title)
+            else{
             return
         }
         switch menuChoice {
@@ -53,7 +54,5 @@ class ViewController: UIViewController {
         }
     }
   
-    
-   
 }
 
