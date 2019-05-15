@@ -74,7 +74,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favCell" id="dBf-Yz-vBS" customClass="ImageCollectionViewCell" customModule="MovieBucket" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="dBf-Yz-vBS" customClass="ImageCollectionViewCell" customModule="MovieBucket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="148" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -136,6 +136,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="2tG-VJ-AI5"/>
                     <connections>
+                        <outlet property="collection" destination="hMD-Yr-GDk" id="JFc-4q-4mn"/>
                         <outletCollection property="choicesCollection" destination="F5G-qp-1tI" collectionClass="NSMutableArray" id="sfb-ys-Omb"/>
                         <outletCollection property="choicesCollection" destination="OdV-cu-BTh" collectionClass="NSMutableArray" id="Y8S-fZ-qnG"/>
                     </connections>

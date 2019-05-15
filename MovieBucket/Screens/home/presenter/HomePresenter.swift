@@ -23,5 +23,6 @@ class HomePresenter : HomeDelegate {
     
     func fetchMovie(moviesList: [Movie]) {
         viewController?.setMovie(moviesList: moviesList)
+        self.viewController?.collection.reloadData();
     }
 }

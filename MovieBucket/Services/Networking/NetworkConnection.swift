@@ -12,7 +12,6 @@ import Alamofire
 class NetworkConnection : NetworkProtocol{
     
     var homeDelegete : HomeDelegate?
-    var imageStringPath : String = "​http://image.tmdb.org/t/p/w185/"
     func setDelegete (delegete: HomeDelegate){
         self.homeDelegete = delegete
     }
@@ -40,8 +39,6 @@ class NetworkConnection : NetworkProtocol{
         {
             //print (movie["poster_path"] )
             
-             imageStringPath.append(contentsOf: movie["poster_path"] as! String)
-            
 //            Alamofire.request(imageStringPath).responseData { response in
 //                if let data = response.data {
 //                   // print(data)
@@ -58,6 +55,8 @@ class NetworkConnection : NetworkProtocol{
 //                        imageData = data
 //                    }
 //            }
+            let img = movie["poster_path"] as! String
+            let imageStringPath = "​http://image.tmdb.org/t/p/w185/" + img
             let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageStringPath as! String, description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
             moviesArray.append(newMovie)
             

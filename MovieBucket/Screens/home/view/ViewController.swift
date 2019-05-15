@@ -15,11 +15,15 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     var moviesList :[Movie]?
     var homePresenter : HomePresenter = HomePresenter()
     @IBOutlet var choicesCollection: [UIButton]!
+    @IBOutlet var collection: UICollectionView!
     var moviesArray = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        moviesList = []
+        collection.delegate = self
+        collection.dataSource = self
         self.homePresenter.setDelegete(delegete: self)
         homePresenter.startConnection(url:"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9")
     }
@@ -67,7 +71,8 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "placeholder.png"))
+         cell.movieImageView.sd_setImage(with: URL(string: "​https://image.tmdb.org/t/p/w185//svIDTNUoajS8dLEo7EosxvyAsgJ.jpg"), placeholderImage: UIImage(named: "tangled.jpg"))
+        print(moviesList![indexPath.row].myImage)
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }
