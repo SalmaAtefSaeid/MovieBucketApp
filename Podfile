@@ -8,4 +8,6 @@ target 'MovieBucket' do
 
   # Pods for MovieBucket
 pod 'Alamofire', '~> 4.0.0-beta.5'
+pod 'AlamofireImage', '~> 3.0'
+pod 'SDWebImage', '~> 4.0'
 end
