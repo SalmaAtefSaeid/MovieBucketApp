@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -66,7 +67,8 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
+         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "placeholder.png"))
+//        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }
     
