@@ -49,16 +49,16 @@ class NetworkConnection : NetworkProtocol{
 //
 //                }
 //            }
-            Alamofire.download(imageStringPath)
-                .downloadProgress { progress in
-                    print("Download Progress: \(progress.fractionCompleted)")
-                }
-                .responseData { response in
-                    if let data = response.result.value {
-                        imageData = data
-                    }
-            }
-            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageData!, description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
+//            Alamofire.download(imageStringPath)
+//                .downloadProgress { progress in
+//                    print("Download Progress: \(progress.fractionCompleted)")
+//                }
+//                .responseData { response in
+//                    if let data = response.result.value {
+//                        imageData = data
+//                    }
+//            }
+            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageStringPath as! String, description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
             moviesArray.append(newMovie)
             
             
