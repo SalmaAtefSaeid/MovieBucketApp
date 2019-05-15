@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource {
 
-
-    var networkConnection : NetworkConnection?
+   
+    var moviesList :[Movie]?
+    var homePresenter : HomePresenter = HomePresenter()
     @IBOutlet var choicesCollection: [UIButton]!
+    var moviesArray = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        networkConnection = NetworkConnection()
+        self.homePresenter.setDelegete(delegete: self)
+        homePresenter.startConnection(url:"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +37,7 @@ class ViewController: UIViewController {
             })
                     }
     }
+    
     enum choices  :  String
     {
         case mostPopular = "mostPopular"
@@ -53,6 +57,18 @@ class ViewController: UIViewController {
             print("highestRate")
         }
     }
-  
+    func setMovie(moviesList: [Movie]) {
+        self.moviesList = moviesList
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return moviesList!.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
+        return cell
+    }
+    
 }
 

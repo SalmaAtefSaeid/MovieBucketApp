@@ -9,15 +9,65 @@
 import Foundation
 import Alamofire
 
-class NetworkConnection{
+class NetworkConnection : NetworkProtocol{
     
-    init() {
-        Alamofire.request("https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9").responseJSON{
+    var homeDelegete : HomeDelegate?
+    var imageStringPath : String = "​http://image.tmdb.org/t/p/w185/"
+    func setDelegete (delegete: HomeDelegate){
+        self.homeDelegete = delegete
+    }
+    func connect(url: String)  {
+       var moviesArray : [Movie]?
+        Alamofire.request(url).responseJSON{
             response in
-            if let json = response.result.value  {
-                print(json)
+            if let json = response.result.value as! [String:Any]?
+            {
+                let movies = json["results"] as! [[String:Any]]?
+                print(movies?[0]["title"])
+                moviesArray = self.parseJson(moviesList: movies!)
+               
+                self.homeDelegete?.fetchMovie(moviesList: moviesArray!)
+                
             }
+        
         }
     }
     
+    func parseJson(moviesList: [[String : Any]]) -> [Movie]{
+        var imageData: Data?
+        var moviesArray = [Movie]()
+        for movie in moviesList
+        {
+            //print (movie["poster_path"] )
+            
+             imageStringPath.append(contentsOf: movie["poster_path"] as! String)
+            
+//            Alamofire.request(imageStringPath).responseData { response in
+//                if let data = response.data {
+//                   // print(data)
+//                    imageData = data
+//
+//                }
+//            }
+            Alamofire.download(imageStringPath)
+                .downloadProgress { progress in
+                    print("Download Progress: \(progress.fractionCompleted)")
+                }
+                .responseData { response in
+                    if let data = response.result.value {
+                        imageData = data
+                    }
+            }
+            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageData!, description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
+            moviesArray.append(newMovie)
+            
+            
+        }
+        return moviesArray
+        
+    }
+    func downloadImage (url: String){
+        
+        
+    }
 }

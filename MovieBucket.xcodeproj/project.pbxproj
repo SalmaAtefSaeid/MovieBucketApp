@@ -16,6 +16,13 @@
 		BAF8E77C22883C720014EAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E77B22883C720014EAF3 /* Assets.xcassets */; };
 		BAF8E77F22883C720014EAF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E77D22883C720014EAF3 /* LaunchScreen.storyboard */; };
 		BAF8E7882288492C0014EAF3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E7872288492C0014EAF3 /* Movie.swift */; };
+		DEAD064B228C4F840099A566 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD064A228C4F840099A566 /* MovieDetailsViewController.swift */; };
+		DEB121F9228B03B200EB7F66 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */; };
+		DEB121FB228B0BCF00EB7F66 /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB121FA228B0BCF00EB7F66 /* NetworkProtocol.swift */; };
+		DEB121FE228B1AB300EB7F66 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB121FD228B1AB300EB7F66 /* HomePresenter.swift */; };
+		DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */; };
+		DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */; };
+		DEB12206228B429C00EB7F66 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,13 @@
 		BAF8E7872288492C0014EAF3 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		CFB48CA29643B898544DA8B9 /* Pods-MovieBucket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBucket.debug.xcconfig"; path = "Target Support Files/Pods-MovieBucket/Pods-MovieBucket.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2666ECA80E456B60EE91E6 /* Pods-MovieBucket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieBucket.release.xcconfig"; path = "Target Support Files/Pods-MovieBucket/Pods-MovieBucket.release.xcconfig"; sourceTree = "<group>"; };
+		DEAD064A228C4F840099A566 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		DEB121FA228B0BCF00EB7F66 /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		DEB121FD228B1AB300EB7F66 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
+		DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegete.swift; sourceTree = "<group>"; };
+		DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */,
+				DEB121FA228B0BCF00EB7F66 /* NetworkProtocol.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -119,7 +134,6 @@
 				DEACA862228AB12400632BD4 /* home */,
 				DEACA861228AB10900632BD4 /* movieDetails */,
 				BAF8E77522883C700014EAF3 /* Main.storyboard */,
-				BAF8E77322883C700014EAF3 /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -135,6 +149,7 @@
 		DEACA861228AB10900632BD4 /* movieDetails */ = {
 			isa = PBXGroup;
 			children = (
+				DEAD064A228C4F840099A566 /* MovieDetailsViewController.swift */,
 			);
 			path = movieDetails;
 			sourceTree = "<group>";
@@ -142,6 +157,9 @@
 		DEACA862228AB12400632BD4 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				DEB12200228B1C1900EB7F66 /* protocols */,
+				DEB121FF228B1BA600EB7F66 /* view */,
+				DEB121FC228B1A4F00EB7F66 /* presenter */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -149,8 +167,35 @@
 		DEACA863228AB19000632BD4 /* favourites */ = {
 			isa = PBXGroup;
 			children = (
+				DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */,
 			);
 			path = favourites;
+			sourceTree = "<group>";
+		};
+		DEB121FC228B1A4F00EB7F66 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DEB121FD228B1AB300EB7F66 /* HomePresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		DEB121FF228B1BA600EB7F66 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */,
+				BAF8E77322883C700014EAF3 /* ViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		DEB12200228B1C1900EB7F66 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */,
+				DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */,
+			);
+			path = protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,10 +319,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF8E77422883C700014EAF3 /* ViewController.swift in Sources */,
+				DEB12206228B429C00EB7F66 /* ImageCollectionViewCell.swift in Sources */,
 				BAF8E77A22883C700014EAF3 /* MovieBucket.xcdatamodeld in Sources */,
 				4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */,
+				DEB121FB228B0BCF00EB7F66 /* NetworkProtocol.swift in Sources */,
 				BAF8E7882288492C0014EAF3 /* Movie.swift in Sources */,
+				DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */,
+				DEB121F9228B03B200EB7F66 /* FavouriteViewController.swift in Sources */,
+				DEAD064B228C4F840099A566 /* MovieDetailsViewController.swift in Sources */,
+				DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */,
 				BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */,
+				DEB121FE228B1AB300EB7F66 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

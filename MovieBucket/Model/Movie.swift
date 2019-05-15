@@ -11,17 +11,15 @@ import Foundation
 class Movie{
     
     var title : String
-    var myImage : String
+    var myImage : Data
     var description :String
     var releaseDate : String
-    var trailer : [String]
     
-    init(title : String, myImage : String, description :String, releaseDate : String, trailer : [String]) {
+    init(title : String, myImage : Data, description :String, releaseDate : String) {
         self.title = title
         self.myImage = myImage
         self.description = description
         self.releaseDate = releaseDate
-        self.trailer = trailer
     }
     
 }
