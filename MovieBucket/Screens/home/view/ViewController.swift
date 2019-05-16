@@ -15,8 +15,8 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
 
    
     var moviesList :[Movie]?
+    var movieSelected : Movie?
     var homePresenter : HomePresenter = HomePresenter()
-    @IBOutlet var choicesCollection: [UIButton]!
     @IBOutlet var collection: UICollectionView!
     var moviesArray = [Movie]()
     
@@ -34,36 +34,8 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func sortBtn(_ sender: UIButton) {
-        choicesCollection.forEach { (button) in
-            UIView.animate(withDuration: 0.3, animations:{
-                button.isHidden = !button.isHidden
-                self.view.layoutIfNeeded()
-
-            })
-                    }
-    }
     
-    enum choices  :  String
-    {
-        case mostPopular = "mostPopular"
-        case HighestRate = "rate"
-    }
     
-    @IBAction func selectedChoices(_ sender: UIButton) {
-        guard let title = sender.currentTitle , let menuChoice = choices(rawValue:title)
-            else{
-            return
-        }
-        switch menuChoice {
-            
-        case .mostPopular :
-            print("populaaaar")
-        default:
-            print("highestRate")
-        }
-    }
     func setMovie(moviesList: [Movie]) {
         self.moviesList = moviesList
     }
@@ -72,21 +44,30 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-         //cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "placeholder.png"))
-        Alamofire.request(moviesList![indexPath.row].myImage).responseImage { response in
-            debugPrint(response)
-            
-            print(response.request)
-            print(response.response)
-            debugPrint(response.result)
-            
-            if let image = response.result.value {
-                print("image downloaded: \(image)")
-            }
-        }
+        let cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "tangled.jpg"))
+        print(self.moviesList![indexPath.row].myImage)
+        var urlMovie : String = self.moviesList![indexPath.row].myImage
+//        Alamofire.request("​https://image.tmdb.org/t/p/w185//6sOFQDlkY6El1B2P5gklzJfVdsT.jpg").responseImage { response in
+//            debugPrint(response)
+//            //print(response.request)
+//            //print(response.response)
+//            //debugPrint(response.result)
+//
+//            if let image = response.result.value {
+//                //print("image downloaded: \(image)")
+//                cell.movieImageView.image = image
+//            }
+//        }
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        movieSelected = moviesList![indexPath.row]
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.restorationIdentifier = "movieDetails"
+        homePresenter.sendMovieDetails(movie: movieSelected!)
     }
     
 }

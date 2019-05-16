@@ -11,8 +11,11 @@ class HomePresenter : HomeDelegate {
     
     var networkConnection : NetworkConnection = NetworkConnection()
     var viewController : ViewController?
+    var movieDetailsPresenter : MovieDetailsDelegate = MovieDetailsPresenter()
+    
     init() {
         self.networkConnection.setDelegete(delegete: self)
+        self.movieDetailsPresenter.setDelegete(delegete: self)
     }
     func setDelegete(delegete: ViewController) {
         self.viewController = delegete
@@ -24,5 +27,8 @@ class HomePresenter : HomeDelegate {
     func fetchMovie(moviesList: [Movie]) {
         viewController?.setMovie(moviesList: moviesList)
         self.viewController?.collection.reloadData();
+    }
+    func sendMovieDetails(movie: Movie) {
+        movieDetailsPresenter.passMovieDetails(movie: movie)
     }
 }

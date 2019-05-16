@@ -9,7 +9,9 @@
 import Foundation
 
 protocol HomeDelegate {
+    
     func startConnection(url: String)
     func fetchMovie(moviesList: [Movie])
     func setDelegete(delegete: ViewController)
+    func sendMovieDetails(movie : Movie)
 }

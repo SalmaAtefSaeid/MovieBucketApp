@@ -56,8 +56,8 @@ class NetworkConnection : NetworkProtocol{
 //                    }
 //            }
             let img = movie["poster_path"] as! String
-            let imageStringPath = "​http://image.tmdb.org/t/p/w185/" + img
-            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageStringPath as! String, description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
+            let imageStringPath = "​https://image.tmdb.org/t/p/w185/" + img
+            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageStringPath , description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
             moviesArray.append(newMovie)
             
             
