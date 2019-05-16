@@ -17,11 +17,15 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     var moviesList :[Movie]?
     var homePresenter : HomePresenter = HomePresenter()
     @IBOutlet var choicesCollection: [UIButton]!
+    @IBOutlet var collection: UICollectionView!
     var moviesArray = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        moviesList = []
+        collection.delegate = self
+        collection.dataSource = self
         self.homePresenter.setDelegete(delegete: self)
         homePresenter.startConnection(url:"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9")
     }

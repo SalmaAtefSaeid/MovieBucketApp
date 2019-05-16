@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8CDB228C891C006D1A6E /* tangled.jpg */; };
 		4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */; };
 		8BE34FA2F45F6EF8D910F596 /* Pods_MovieBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */; };
 		BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77122883C700014EAF3 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A4D8CDB228C891C006D1A6E /* tangled.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tangled.jpg; sourceTree = "<group>"; };
 		4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E76E22883C6F0014EAF3 /* MovieBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 		BAF8E76522883C6E0014EAF3 = {
 			isa = PBXGroup;
 			children = (
+				4A4D8CDB228C891C006D1A6E /* tangled.jpg */,
 				BAF8E77022883C6F0014EAF3 /* MovieBucket */,
 				BAF8E76F22883C6F0014EAF3 /* Products */,
 				005A28D9FA3B3FBEF2E12644 /* Pods */,
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAF8E77F22883C720014EAF3 /* LaunchScreen.storyboard in Resources */,
+				4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */,
 				BAF8E77C22883C720014EAF3 /* Assets.xcassets in Resources */,
 				BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */,
 			);
