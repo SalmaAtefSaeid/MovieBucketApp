@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import AlamofireImage
+import Alamofire
 
 class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -67,7 +69,18 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "placeholder.png"))
+         //cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "placeholder.png"))
+        Alamofire.request(moviesList![indexPath.row].myImage).responseImage { response in
+            debugPrint(response)
+            
+            print(response.request)
+            print(response.response)
+            debugPrint(response.result)
+            
+            if let image = response.result.value {
+                print("image downloaded: \(image)")
+            }
+        }
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }
