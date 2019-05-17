@@ -9,8 +9,17 @@
 import Foundation
 class MovieDetailsPresenter: MovieDetailsDelegate {
     
-    func passMovieDetails(movie: Movie) {
+    var homeDelegate : HomeDelegate?
+    var movieDetailsVCDelegate: MovieDetailsViewControllerDelegate = MovieDetailsViewController()
+    
+    init() {
+        movieDetailsVCDelegate.setDelegate(delegete: self)
     }
+    
     func setDelegete(delegete: HomeDelegate) {
+        homeDelegate = delegete
+    }
+    func passMovieDetails(movie: Movie) {
+        movieDetailsVCDelegate.setMovieDetails(movie: movie)
     }
 }

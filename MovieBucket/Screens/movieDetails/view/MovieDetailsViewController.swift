@@ -8,21 +8,33 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
-
+class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieDetailsViewControllerDelegate{
  
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieOverview: UILabel!
     @IBOutlet var dateTitle: UILabel!
     @IBOutlet var trailersTableView: UITableView!
+    var movieDetailsDelegate: MovieDetailsDelegate?
+    var selectedMovie: Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         trailersTableView.delegate = self
         trailersTableView.dataSource = self
-
-        // Do any additional setup after loading the view.
+        
+    }
+    func setDelegate(delegete: MovieDetailsDelegate) {
+        movieDetailsDelegate = delegete
+    }
+    
+    func setMovieDetails(movie: Movie) {
+        selectedMovie = movie
+    }
+    func setView(){
+        movieTitle.text = selectedMovie?.title
+        movieOverview.text = selectedMovie?.description
+        dateTitle.text = selectedMovie?.releaseDate
     }
     @IBAction func favouriteImage(_ sender: UIButton) {
     }

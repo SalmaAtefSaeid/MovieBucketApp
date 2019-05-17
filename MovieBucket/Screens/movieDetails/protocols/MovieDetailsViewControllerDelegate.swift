@@ -8,4 +8,9 @@
 
 import Foundation
 protocol MovieDetailsViewControllerDelegate {
+    
+    func setMovieDetails(movie : Movie)
+    func setDelegate(delegete: MovieDetailsDelegate)
+    func setView()
+    
 }
