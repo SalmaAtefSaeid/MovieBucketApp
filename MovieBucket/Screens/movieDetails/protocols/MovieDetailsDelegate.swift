@@ -11,5 +11,6 @@ protocol MovieDetailsDelegate {
     
     func passMovieDetails(movie : Movie)
     func setDelegete(delegete: HomeDelegate)
+    func getFavouriteMovie(movie : Movie) -> (Movie)
     
 }

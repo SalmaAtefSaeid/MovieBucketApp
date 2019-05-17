@@ -14,6 +14,8 @@
 		4AE99DA4228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99DA3228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift */; };
 		4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99DA5228DC7C200FAA3D1 /* TrailerTableViewCell.swift */; };
 		8BE34FA2F45F6EF8D910F596 /* Pods_MovieBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */; };
+		BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F1BBA228F4F07003782E6 /* FavouritePresenter.swift */; };
+		BA3F1BBD228F4F2F003782E6 /* FavouriteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */; };
 		BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77122883C700014EAF3 /* AppDelegate.swift */; };
 		BAF8E77422883C700014EAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77322883C700014EAF3 /* ViewController.swift */; };
 		BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E77522883C700014EAF3 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		4AE99DA3228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewControllerDelegate.swift; sourceTree = "<group>"; };
 		4AE99DA5228DC7C200FAA3D1 /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
 		606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA3F1BBA228F4F07003782E6 /* FavouritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePresenter.swift; sourceTree = "<group>"; };
+		BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDelegate.swift; sourceTree = "<group>"; };
 		BAF8E76E22883C6F0014EAF3 /* MovieBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E77122883C700014EAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF8E77322883C700014EAF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,30 @@
 				606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA3F1BB6228F4E64003782E6 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		BA3F1BB7228F4E71003782E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		BA3F1BB9228F4E8A003782E6 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F1BBA228F4F07003782E6 /* FavouritePresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		BAF8E76522883C6E0014EAF3 = {
@@ -206,7 +234,9 @@
 		DEACA863228AB19000632BD4 /* favourites */ = {
 			isa = PBXGroup;
 			children = (
-				DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */,
+				BA3F1BB9228F4E8A003782E6 /* presenter */,
+				BA3F1BB7228F4E71003782E6 /* view */,
+				BA3F1BB6228F4E64003782E6 /* protocols */,
 			);
 			path = favourites;
 			sourceTree = "<group>";
@@ -312,8 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MovieBucket/Pods-MovieBucket-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
@@ -321,8 +349,6 @@
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
@@ -338,15 +364,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MovieBucket-checkManifestLockResult.txt",
 			);
@@ -375,6 +397,8 @@
 				DEAD064B228C4F840099A566 /* MovieDetailsViewController.swift in Sources */,
 				4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */,
 				DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */,
+				BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */,
+				BA3F1BBD228F4F2F003782E6 /* FavouriteDelegate.swift in Sources */,
 				BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */,
 				DEB121FE228B1AB300EB7F66 /* HomePresenter.swift in Sources */,
 				4AE99DA4228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift in Sources */,

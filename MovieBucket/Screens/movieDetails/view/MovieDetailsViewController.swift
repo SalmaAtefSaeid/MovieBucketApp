@@ -17,6 +17,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var trailersTableView: UITableView!
     var movieDetailsDelegate: MovieDetailsDelegate?
     var selectedMovie: Movie?
+    var movieDetailsPresenter : MovieDetailsPresenter = MovieDetailsPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,11 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         return cell
+    }
+    
+    @IBAction func favouriteMovie(_ sender: UIButton) {
+        
+        movieDetailsPresenter.getFavouriteMovie(movie: selectedMovie!)
     }
     /*
     // MARK: - Navigation
