@@ -14,8 +14,7 @@ class HomePresenter : HomeDelegate {
     var movieDetailsPresenter : MovieDetailsDelegate = MovieDetailsPresenter()
     
     init() {
-        self.networkConnection.setDelegete(delegete: self)
-        self.movieDetailsPresenter.setDelegete(delegete: self)
+        networkConnection.setDelegete(delegete: self)
     }
     func setDelegete(delegete: ViewController) {
         self.viewController = delegete

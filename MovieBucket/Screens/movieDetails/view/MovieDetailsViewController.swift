@@ -7,50 +7,99 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieDetailsViewControllerDelegate{
- 
+    
+    @IBOutlet var myScrollView: UIScrollView!
+    @IBOutlet var reviewTable: UITableView!
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
-    @IBOutlet var movieOverview: UILabel!
+    @IBOutlet var movieVote: UILabel!
+    @IBOutlet var movieOverview: UITextView!
     @IBOutlet var dateTitle: UILabel!
     @IBOutlet var trailersTableView: UITableView!
-    var movieDetailsDelegate: MovieDetailsDelegate?
+    var movieDetailsPresenter: MovieDetailsDelegate = MovieDetailsPresenter()
     var selectedMovie: Movie?
-    var movieDetailsPresenter : MovieDetailsPresenter = MovieDetailsPresenter()
+    var videoList = [Video]()
+    var reviewList = [Review]()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
         trailersTableView.delegate = self
         trailersTableView.dataSource = self
-        
-    }
-    func setDelegate(delegete: MovieDetailsDelegate) {
-        movieDetailsDelegate = delegete
+        reviewTable.delegate = self
+        reviewTable.dataSource = self
+        setView(movie: selectedMovie!)
+        myScrollView.isScrollEnabled = true
+        myScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
     }
     
     func setMovieDetails(movie: Movie) {
         selectedMovie = movie
     }
-    func setView(){
-        movieTitle.text = selectedMovie?.title
-        movieOverview.text = selectedMovie?.description
-        dateTitle.text = selectedMovie?.releaseDate
-    }
-    @IBAction func favouriteImage(_ sender: UIButton) {
+    
+    func setView(movie: Movie){
+        var title = movie.title
+        movieTitle.text = title
+        movieOverview.text = movie.description
+        dateTitle.text = movie.releaseDate
+        movieVote.text=String(movie.userRating)+"/10"
+        var img = movie.myImage
+        Alamofire.request(img).responseImage { response in
+            if let image = response.result.value {
+                self.movieImage.image = image
+            }
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        
+        switch tableView {
+        case trailersTableView:
+             return (videoList.count)
+        case reviewTable:
+            return(reviewList.count)
+        default:
+            return 0
+        }
+       
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        return cell
+        switch tableView {
+        
+        case trailersTableView:
+            var cell : TrailerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "trailerCell", for: indexPath) as! TrailerTableViewCell
+            cell.videoName.text = videoList[indexPath.row].videoName
+            return cell
+        case reviewTable:
+            var cell : ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
+            cell.reviewAuthor.text = reviewList[indexPath.row].author
+            cell.reviewContent.text=reviewList[indexPath.row].content
+            return cell
+        default:
+            var cell: UITableViewCell = UITableViewCell()
+                return cell
+            
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView {
+        case trailersTableView:
+            openYoutube(url: videoList[indexPath.row].videoID)
+        case reviewTable:
+           print(reviewList[indexPath.row].author)
+        default:
+            print("")
+        }
+        
+        
     }
     
     @IBAction func favouriteMovie(_ sender: UIButton) {
-        
-        movieDetailsPresenter.getFavouriteMovie(movie: selectedMovie!)
+        movieDetailsPresenter.setFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
     }
     func openYoutube(url: String){
         let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
@@ -60,16 +109,16 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             application.open(appUrl! as URL, options: [:], completionHandler: nil)
         }else{
             application.open(webUrl! as URL, options: [:], completionHandler: nil)
+            print(webUrl)
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setVideo(videosList: [Video]) {
+        videoList = videosList
+        trailersTableView.reloadData()
     }
-    */
+    func setReview(reviewList: [Review]) {
+        self.reviewList = reviewList
+        reviewTable.reloadData()
+    }
 
 }

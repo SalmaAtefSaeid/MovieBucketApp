@@ -11,7 +11,7 @@ import SDWebImage
 import AlamofireImage
 import Alamofire
 
-class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
 
    
     var moviesList :[Movie]?
@@ -33,6 +33,7 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         segmentedControl.sizeToFit()
         segmentedControl.tintColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.addTarget(self, action: #selector(self.selectViewBy(_:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
     }
 
@@ -51,46 +52,47 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "tangled.jpg"))
-        print(self.moviesList![indexPath.row].myImage)
-        var urlMovie : String = self.moviesList![indexPath.row].myImage
-//        Alamofire.request("​https://image.tmdb.org/t/p/w185//6sOFQDlkY6El1B2P5gklzJfVdsT.jpg").responseImage { response in
-//            debugPrint(response)
-//            //print(response.request)
-//            //print(response.response)
-//            //debugPrint(response.result)
-//
-//            if let image = response.result.value {
-//                //print("image downloaded: \(image)")
-//                cell.movieImageView.image = image
-//            }
-//        }
+//         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "tangled.jpg"))
+        Alamofire.request(self.moviesList![indexPath.row].myImage).responseImage { response in
+            if let image = response.result.value {
+                cell.movieImageView.image = image
+            }
+        }
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }
-    @IBAction func selectViewBy(_ sender: UIBarButtonItem) {
+    @IBAction func selectViewBy(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex{
         case 0:
             url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
+            homePresenter.startConnection(url: url)
         case 1 :
-            url = ""
-            
+            url = "https://api.themoviedb.org/3/discover/movie?sort_by=top_rated.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
+            homePresenter.startConnection(url: url)
         default:
             break
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         movieSelected = moviesList![indexPath.row]
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.restorationIdentifier = "movieDetails"
-        homePresenter.sendMovieDetails(movie: movieSelected!)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let padding: CGFloat =  50
-        let collectionViewSize = collectionView.frame.size.width - padding
         
-        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+        var movieDetailsVC: MovieDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetails") as! MovieDetailsViewController
+        movieDetailsVC.movieDetailsPresenter.setDelegete(delegete: movieDetailsVC)
+        movieDetailsVC.movieDetailsPresenter.passMovieDetails(movie: movieSelected!)
+        //homePresenter.sendMovieDetails(movie: movieSelected!)
+        self.navigationController?.pushViewController(movieDetailsVC, animated:false)
+    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        segue.destination.restorationIdentifier = "movieDetails"
+//        segue.destination as! MovieDetailsViewController
+//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.size.width - 8 * 2) / 2
+        let height = width * 275 / 185
+//        let padding: CGFloat =  50
+//        let collectionViewSize = collectionView.frame.size.width - padding
+//        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+        return CGSize(width: width, height: height)
     }
 }
 

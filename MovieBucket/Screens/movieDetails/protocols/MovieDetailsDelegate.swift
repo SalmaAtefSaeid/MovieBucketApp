@@ -10,7 +10,11 @@ import Foundation
 protocol MovieDetailsDelegate {
     
     func passMovieDetails(movie : Movie)
-    func setDelegete(delegete: HomeDelegate)
-    func getFavouriteMovie(movie : Movie) -> (Movie)
+    func setDelegete(delegete: MovieDetailsViewControllerDelegate)
+    func setFavouriteMovie(degelate: AppDelegate, movie : Movie)
+    func setTrailer(movie: Movie)
+    func setReview(movie: Movie)
+    func getYoutubeJson (youtubeArrayID : [Video])
+    func getReviewJson (reviewArray : [Review])
     
 }

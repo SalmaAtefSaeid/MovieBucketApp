@@ -10,8 +10,10 @@ import Foundation
 protocol MovieDetailsViewControllerDelegate {
     
     func setMovieDetails(movie : Movie)
-    func setDelegate(delegete: MovieDetailsDelegate)
-    func setView()
+    func setView(movie: Movie)
     func openYoutube(url: String)
+    func setVideo(videosList: [Video])
+    func setReview(reviewList : [Review])
+    
     
 }

@@ -10,6 +10,11 @@ import Foundation
 protocol NetworkProtocol {
     
     func connect (url: String)
+    func connectToGetYoutubeID (movieID: String)
+    func connectToGetReview (movieID: String)
     func parseJson (moviesList : [[String:Any]]) -> [Movie]
+    func parseYoutubeID (json : [[String:Any]]) -> [Video]
+    func parseReview (json : [[String:Any]]) -> [Review]
     func setDelegete (delegete: HomeDelegate)
+    func setMovieDetailsDelegete(delegete: MovieDetailsDelegate)
 }

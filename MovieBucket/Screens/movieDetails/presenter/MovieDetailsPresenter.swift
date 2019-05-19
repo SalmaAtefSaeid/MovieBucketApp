@@ -7,24 +7,66 @@
 //
 
 import Foundation
-class MovieDetailsPresenter: MovieDetailsDelegate {
+import CoreData
 
+class MovieDetailsPresenter: MovieDetailsDelegate {
+   
     
     var homeDelegate : HomeDelegate?
-    var movieDetailsVCDelegate: MovieDetailsViewControllerDelegate = MovieDetailsViewController()
+    var movieDetailsVCDelegate: MovieDetailsViewControllerDelegate?
+     var network : NetworkProtocol = NetworkConnection()
     
     init() {
-        movieDetailsVCDelegate.setDelegate(delegete: self)
+//        movieDetailsVCDelegate.setDelegate(delegete: self)
+        network.setMovieDetailsDelegete(delegete: self)
     }
     
-    func setDelegete(delegete: HomeDelegate) {
-        homeDelegate = delegete
+    func setDelegete(delegete: MovieDetailsViewControllerDelegate) {
+       movieDetailsVCDelegate = delegete
     }
     func passMovieDetails(movie: Movie) {
-        movieDetailsVCDelegate.setMovieDetails(movie: movie)
+        movieDetailsVCDelegate!.setMovieDetails(movie: movie)
+        setTrailer(movie: movie)
+        setReview(movie: movie)
     }
-    func getFavouriteMovie(movie : Movie) -> (Movie) {
-        return movie
+    func setTrailer(movie: Movie){
+        var movieID = String(movie.movieId)
+        network.connectToGetYoutubeID(movieID: movieID)
     }
+    func setFavouriteMovie(degelate: AppDelegate, movie : Movie) {
+        let managerContext = degelate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "MovieEntity", in: managerContext)
+        let storedMovie  = NSManagedObject(entity: entity!, insertInto: managerContext)
+        storedMovie.setValue(movie.title, forKey: "title")
+        storedMovie.setValue(movie.userRating, forKey: "userRating")
+        storedMovie.setValue(movie.releaseDate, forKey: "releaseDate")
+        storedMovie.setValue(movie.movieId, forKey: "movieID")
+        storedMovie.setValue(movie.myImage, forKey: "myImage")
+        storedMovie.setValue(movie.description, forKey: "movieDescription")
+        do{
+            try managerContext.save()
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
+        
+    }
+     func getYoutubeJson (youtubeArrayID : [Video])
+     {
+        movieDetailsVCDelegate?.setVideo(videosList: youtubeArrayID)
+        
+    }
+    func getReviewJson(reviewArray: [Review]) {
+       movieDetailsVCDelegate?.setReview(reviewList: reviewArray)
+    }
+    func setReview(movie: Movie) {
+        var movieID = String(movie.movieId)
+        network.connectToGetReview(movieID: movieID)
+    }
+    
+    
+
+    
     
 }

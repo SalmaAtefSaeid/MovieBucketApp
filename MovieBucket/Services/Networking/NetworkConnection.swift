@@ -10,10 +10,16 @@ import Foundation
 import Alamofire
 
 class NetworkConnection : NetworkProtocol{
-    
+
+ 
     var homeDelegete : HomeDelegate?
+    var movieDetailsPresenter : MovieDetailsDelegate?
+    
     func setDelegete (delegete: HomeDelegate){
         self.homeDelegete = delegete
+    }
+    func setMovieDetailsDelegete(delegete: MovieDetailsDelegate){
+        self.movieDetailsPresenter = delegete
     }
     func connect(url: String)  {
        var moviesArray : [Movie]?
@@ -22,23 +28,19 @@ class NetworkConnection : NetworkProtocol{
             if let json = response.result.value as! [String:Any]?
             {
                 let movies = json["results"] as! [[String:Any]]?
-                print(movies?[0]["title"])
                 moviesArray = self.parseJson(moviesList: movies!)
-               
                 self.homeDelegete?.fetchMovie(moviesList: moviesArray!)
-                
             }
-        
         }
     }
     
     func parseJson(moviesList: [[String : Any]]) -> [Movie]{
-        var imageData: Data?
+//        var imageData: Data?
         var moviesArray = [Movie]()
         for movie in moviesList
         {
-            //print (movie["poster_path"] )
-            
+            let img = movie["poster_path"] as! String
+            let imageStringPath = "http://image.tmdb.org/t/p/w185" + img
 //            Alamofire.request(imageStringPath).responseData { response in
 //                if let data = response.data {
 //                   // print(data)
@@ -55,9 +57,7 @@ class NetworkConnection : NetworkProtocol{
 //                        imageData = data
 //                    }
 //            }
-            let img = movie["poster_path"] as! String
-            let imageStringPath = "​https://image.tmdb.org/t/p/w185/" + img
-            let newMovie = Movie (title: movie["original_title"] as! String, myImage: imageStringPath , description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String)
+            let newMovie = Movie (movieId: movie["id"] as! Int32, title: movie["original_title"] as! String, myImage: imageStringPath , description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String, userRating: Int32(movie["vote_average"] as! NSNumber))
             moviesArray.append(newMovie)
             
             
@@ -65,8 +65,63 @@ class NetworkConnection : NetworkProtocol{
         return moviesArray
         
     }
-    func downloadImage (url: String){
-        
-        
+    func connectToGetYoutubeID(movieID: String) {
+        var url = "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=f19893f85426e33ad5ea2a0301b009b9"
+        var youtubeIDArray : [Video]?
+        Alamofire.request(url).responseJSON{
+            response in
+            if let json = response.result.value as! [String:Any]?
+            {
+                let youtubeJson = json["results"] as! [[String:Any]]?
+                youtubeIDArray = self.parseYoutubeID(json:youtubeJson!)
+                
+                self.movieDetailsPresenter?.getYoutubeJson(youtubeArrayID: youtubeIDArray!)
+                
+            }
+            
+        }
     }
+     func parseYoutubeID (json : [[String:Any]]) -> [Video]
+     {
+        var youtubeIDs = [Video]()
+        for video in json
+        {
+           
+            let newVideo = Video (videoID: video["key"] as! String, videoName: video["name"] as! String)
+            youtubeIDs.append(newVideo)
+            
+        }
+        return youtubeIDs
+    }
+    func connectToGetReview(movieID: String) {
+        var url = "https://api.themoviedb.org/3/movie/\(movieID)/reviews?api_key=f19893f85426e33ad5ea2a0301b009b9"
+        var reviewsArray : [Review]?
+        Alamofire.request(url).responseJSON{
+            response in
+            if let json = response.result.value as! [String:Any]?
+            {
+                let reviewJson = json["results"] as! [[String:Any]]?
+                reviewsArray = self.parseReview(json: reviewJson!)
+                    self.movieDetailsPresenter?.getReviewJson(reviewArray: reviewsArray!)
+                
+            }
+            
+        }
+    }
+    
+    func parseReview(json: [[String : Any]]) -> [Review] {
+        var reviewList = [Review]()
+        for review in json
+        {
+           
+            let newReview = Review (author: review["author"] as! String, content: review["content"] as! String)
+            reviewList.append(newReview)
+            
+        }
+        return reviewList
+    }
+    
+    
+    
+    
 }

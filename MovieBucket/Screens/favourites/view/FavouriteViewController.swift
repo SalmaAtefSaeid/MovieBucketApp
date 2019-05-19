@@ -7,24 +7,65 @@
 //
 
 import UIKit
+import CoreData
+import Alamofire
+import AlamofireImage
 
-class FavouriteViewController: UIViewController {
-
+class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+    
+    @IBOutlet var favouriteCollectionView: UICollectionView!
+    var favouritePresenter : FavouritePresenterDelegate = FavouritePresenter()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var moviesList = [NSManagedObject]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        favouriteCollectionView.dataSource = self
+        favouriteCollectionView.delegate = self
+        favouritePresenter.setDelegate(delegate: self)
+        favouritePresenter.fetchMovies(delegate: appDelegate)
+    }
+    func setMovies(movieList: [NSManagedObject]) {
+        moviesList = movieList
+        favouriteCollectionView.reloadData()
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return moviesList.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : FavouriteCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "favCell", for: indexPath) as! FavouriteCollectionViewCell
+        var movieImageUrl = moviesList[indexPath.row].value(forKey: "myImage") as! String
+        Alamofire.request(movieImageUrl).responseImage { response in
+            if let image = response.result.value {
+                cell.movieImage.image = image
+            }
+        }
+        return cell
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var movieSelected = populateMovie(movie: moviesList[indexPath.row])
+        var movieDetailsVC: MovieDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetails") as! MovieDetailsViewController
+        movieDetailsVC.movieDetailsPresenter.setDelegete(delegete: movieDetailsVC)
+        movieDetailsVC.movieDetailsPresenter.passMovieDetails(movie: movieSelected)
+        //homePresenter.sendMovieDetails(movie: movieSelected!)
+        self.navigationController?.pushViewController(movieDetailsVC, animated:false)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (self.view.frame.size.width - 8 * 2) / 2
+        let height = width * 275 / 185
+        //        let padding: CGFloat =  50
+        //        let collectionViewSize = collectionView.frame.size.width - padding
+        //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+        return CGSize(width: width, height: height)
+    }
+    func populateMovie(movie: NSManagedObject) -> Movie{
+        
+        var movie = Movie(movieId: movie.value(forKey: "movieID") as! Int32 , title: movie.value(forKey: "title") as! String, myImage: movie.value(forKey: "myImage") as! String, description: movie.value(forKey: "movieDescription") as! String, releaseDate: movie.value(forKey: "releaseDate") as! String, userRating: movie.value(forKey: "userRating") as! Int32)
+        return movie
+    }
+    
 }

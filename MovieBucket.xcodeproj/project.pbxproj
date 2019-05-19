@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07C40228F85DE0074A7B5 /* Color.swift */; };
+		4A2950EF229189FA00D16424 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950EE229189FA00D16424 /* Video.swift */; };
+		4A2950F1229192AF00D16424 /* icons8-play-button-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2950F0229192AE00D16424 /* icons8-play-button-100.png */; };
+		4A2950F32291B16300D16424 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950F22291B16300D16424 /* ReviewTableViewCell.swift */; };
+		4A2950F52291B28B00D16424 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950F42291B28B00D16424 /* Review.swift */; };
+		4A2950F72291D33900D16424 /* FavouriteVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950F62291D33900D16424 /* FavouriteVCDelegate.swift */; };
+		4A2950FB2291D76700D16424 /* FavouriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950FA2291D76700D16424 /* FavouriteCollectionViewCell.swift */; };
 		4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8CDB228C891C006D1A6E /* tangled.jpg */; };
 		4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */; };
 		4AE99DA0228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */; };
@@ -16,7 +22,7 @@
 		4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99DA5228DC7C200FAA3D1 /* TrailerTableViewCell.swift */; };
 		8BE34FA2F45F6EF8D910F596 /* Pods_MovieBucket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */; };
 		BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F1BBA228F4F07003782E6 /* FavouritePresenter.swift */; };
-		BA3F1BBD228F4F2F003782E6 /* FavouriteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */; };
+		BA3F1BBD228F4F2F003782E6 /* FavouritePresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3F1BBC228F4F2F003782E6 /* FavouritePresenterDelegate.swift */; };
 		BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77122883C700014EAF3 /* AppDelegate.swift */; };
 		BAF8E77422883C700014EAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF8E77322883C700014EAF3 /* ViewController.swift */; };
 		BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF8E77522883C700014EAF3 /* Main.storyboard */; };
@@ -35,6 +41,12 @@
 
 /* Begin PBXFileReference section */
 		3AA07C40228F85DE0074A7B5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4A2950EE229189FA00D16424 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		4A2950F0229192AE00D16424 /* icons8-play-button-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-play-button-100.png"; sourceTree = "<group>"; };
+		4A2950F22291B16300D16424 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		4A2950F42291B28B00D16424 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		4A2950F62291D33900D16424 /* FavouriteVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteVCDelegate.swift; sourceTree = "<group>"; };
+		4A2950FA2291D76700D16424 /* FavouriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		4A4D8CDB228C891C006D1A6E /* tangled.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tangled.jpg; sourceTree = "<group>"; };
 		4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -43,7 +55,7 @@
 		4AE99DA5228DC7C200FAA3D1 /* TrailerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerTableViewCell.swift; sourceTree = "<group>"; };
 		606DA53958A088C0A0E2AE00 /* Pods_MovieBucket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieBucket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3F1BBA228F4F07003782E6 /* FavouritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePresenter.swift; sourceTree = "<group>"; };
-		BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDelegate.swift; sourceTree = "<group>"; };
+		BA3F1BBC228F4F2F003782E6 /* FavouritePresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePresenterDelegate.swift; sourceTree = "<group>"; };
 		BAF8E76E22883C6F0014EAF3 /* MovieBucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieBucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8E77122883C700014EAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAF8E77322883C700014EAF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +120,7 @@
 			children = (
 				DEAD064A228C4F840099A566 /* MovieDetailsViewController.swift */,
 				4AE99DA5228DC7C200FAA3D1 /* TrailerTableViewCell.swift */,
+				4A2950F22291B16300D16424 /* ReviewTableViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -131,7 +144,8 @@
 		BA3F1BB6228F4E64003782E6 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
-				BA3F1BBC228F4F2F003782E6 /* FavouriteDelegate.swift */,
+				BA3F1BBC228F4F2F003782E6 /* FavouritePresenterDelegate.swift */,
+				4A2950F62291D33900D16424 /* FavouriteVCDelegate.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -140,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB121F8228B03B200EB7F66 /* FavouriteViewController.swift */,
+				4A2950FA2291D76700D16424 /* FavouriteCollectionViewCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -155,6 +170,7 @@
 		BAF8E76522883C6E0014EAF3 = {
 			isa = PBXGroup;
 			children = (
+				4A2950F0229192AE00D16424 /* icons8-play-button-100.png */,
 				4A4D8CDB228C891C006D1A6E /* tangled.jpg */,
 				BAF8E77022883C6F0014EAF3 /* MovieBucket */,
 				BAF8E76F22883C6F0014EAF3 /* Products */,
@@ -190,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				BAF8E7872288492C0014EAF3 /* Movie.swift */,
+				4A2950EE229189FA00D16424 /* Video.swift */,
+				4A2950F42291B28B00D16424 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,9 +215,9 @@
 		BAF8E78922884C0B0014EAF3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DEACA861228AB10900632BD4 /* movieDetails */,
 				DEACA863228AB19000632BD4 /* favourites */,
 				DEACA862228AB12400632BD4 /* home */,
-				DEACA861228AB10900632BD4 /* movieDetails */,
 				BAF8E77522883C700014EAF3 /* Main.storyboard */,
 				3AA07C40228F85DE0074A7B5 /* Color.swift */,
 			);
@@ -332,6 +350,7 @@
 			files = (
 				BAF8E77F22883C720014EAF3 /* LaunchScreen.storyboard in Resources */,
 				4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */,
+				4A2950F1229192AF00D16424 /* icons8-play-button-100.png in Resources */,
 				BAF8E77C22883C720014EAF3 /* Assets.xcassets in Resources */,
 				BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */,
 			);
@@ -391,20 +410,25 @@
 				DEB12206228B429C00EB7F66 /* ImageCollectionViewCell.swift in Sources */,
 				BAF8E77A22883C700014EAF3 /* MovieBucket.xcdatamodeld in Sources */,
 				4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */,
+				4A2950F72291D33900D16424 /* FavouriteVCDelegate.swift in Sources */,
 				4AE99DA2228DC20400FAA3D1 /* MovieDetailsDelegate.swift in Sources */,
 				DEB121FB228B0BCF00EB7F66 /* NetworkProtocol.swift in Sources */,
 				BAF8E7882288492C0014EAF3 /* Movie.swift in Sources */,
 				4AE99DA0228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift in Sources */,
 				DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */,
+				4A2950EF229189FA00D16424 /* Video.swift in Sources */,
 				DEB121F9228B03B200EB7F66 /* FavouriteViewController.swift in Sources */,
 				DEAD064B228C4F840099A566 /* MovieDetailsViewController.swift in Sources */,
 				3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */,
 				4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */,
 				DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */,
+				4A2950FB2291D76700D16424 /* FavouriteCollectionViewCell.swift in Sources */,
 				BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */,
-				BA3F1BBD228F4F2F003782E6 /* FavouriteDelegate.swift in Sources */,
+				BA3F1BBD228F4F2F003782E6 /* FavouritePresenterDelegate.swift in Sources */,
+				4A2950F52291B28B00D16424 /* Review.swift in Sources */,
 				BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */,
 				DEB121FE228B1AB300EB7F66 /* HomePresenter.swift in Sources */,
+				4A2950F32291B16300D16424 /* ReviewTableViewCell.swift in Sources */,
 				4AE99DA4228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

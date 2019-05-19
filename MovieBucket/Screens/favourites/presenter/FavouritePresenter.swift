@@ -7,10 +7,28 @@
 //
 
 import Foundation
-class FavouritePresenter : FavouriteDelegate
+import CoreData
+
+class FavouritePresenter : FavouritePresenterDelegate
 {
-    func recieveMovie() {
-        
+    
+    var favouriteVC : FavouriteVCDelegate?
+    var movies = Array <NSManagedObject>()
+    func setDelegate(delegate: FavouriteVCDelegate) {
+        favouriteVC = delegate
+    }
+    
+    func fetchMovies (delegate: AppDelegate){
+        let managerContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
+        do{
+            movies = try managerContext.fetch(fetchRequest)
+            favouriteVC?.setMovies(movieList: movies)
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
     }
     
     

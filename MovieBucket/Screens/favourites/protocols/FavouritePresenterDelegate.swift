@@ -7,8 +7,10 @@
 //
 
 import Foundation
-protocol FavouriteDelegate
+
+protocol FavouritePresenterDelegate
 {
-    func recieveMovie ()
+    func fetchMovies (delegate: AppDelegate)
+    func setDelegate(delegate: FavouriteVCDelegate)
     
 }
