@@ -12,5 +12,6 @@ protocol MovieDetailsViewControllerDelegate {
     func setMovieDetails(movie : Movie)
     func setDelegate(delegete: MovieDetailsDelegate)
     func setView()
+    func openYoutube(url: String)
     
 }

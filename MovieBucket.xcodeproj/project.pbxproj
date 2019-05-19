@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07C40228F85DE0074A7B5 /* Color.swift */; };
 		4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8CDB228C891C006D1A6E /* tangled.jpg */; };
 		4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */; };
 		4AE99DA0228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AA07C40228F85DE0074A7B5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4A4D8CDB228C891C006D1A6E /* tangled.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tangled.jpg; sourceTree = "<group>"; };
 		4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				DEACA862228AB12400632BD4 /* home */,
 				DEACA861228AB10900632BD4 /* movieDetails */,
 				BAF8E77522883C700014EAF3 /* Main.storyboard */,
+				3AA07C40228F85DE0074A7B5 /* Color.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */,
 				DEB121F9228B03B200EB7F66 /* FavouriteViewController.swift in Sources */,
 				DEAD064B228C4F840099A566 /* MovieDetailsViewController.swift in Sources */,
+				3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */,
 				4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */,
 				DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */,
 				BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */,

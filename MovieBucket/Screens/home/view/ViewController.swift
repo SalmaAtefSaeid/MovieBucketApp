@@ -18,6 +18,8 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     var movieSelected : Movie?
     var homePresenter : HomePresenter = HomePresenter()
     @IBOutlet var collection: UICollectionView!
+    let segmentedControl = UISegmentedControl(items: ["Most popular", "Top rated"])
+    var url: String = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
     var moviesArray = [Movie]()
     
     override func viewDidLoad() {
@@ -27,7 +29,11 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         collection.delegate = self
         collection.dataSource = self
         self.homePresenter.setDelegete(delegete: self)
-        homePresenter.startConnection(url:"https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9")
+        homePresenter.startConnection(url: url)
+        segmentedControl.sizeToFit()
+        segmentedControl.tintColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        segmentedControl.selectedSegmentIndex = 0
+        self.navigationItem.titleView = segmentedControl
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +68,17 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }
+    @IBAction func selectViewBy(_ sender: UIBarButtonItem) {
+        switch segmentedControl.selectedSegmentIndex{
+        case 0:
+            url = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
+        case 1 :
+            url = ""
+            
+        default:
+            break
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         movieSelected = moviesList![indexPath.row]
     }
@@ -69,6 +86,11 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         segue.destination.restorationIdentifier = "movieDetails"
         homePresenter.sendMovieDetails(movie: movieSelected!)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding: CGFloat =  50
+        let collectionViewSize = collectionView.frame.size.width - padding
+        
+        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+    }
 }
 

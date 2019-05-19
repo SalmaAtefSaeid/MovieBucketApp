@@ -52,6 +52,16 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
         movieDetailsPresenter.getFavouriteMovie(movie: selectedMovie!)
     }
+    func openYoutube(url: String){
+        let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
+        let webUrl = NSURL(string: "https://www.youtube.com/watch?v=\(url)")
+        let application = UIApplication.shared
+        if application.canOpenURL(appUrl! as URL){
+            application.open(appUrl! as URL, options: [:], completionHandler: nil)
+        }else{
+            application.open(webUrl! as URL, options: [:], completionHandler: nil)
+        }
+    }
     /*
     // MARK: - Navigation
 
