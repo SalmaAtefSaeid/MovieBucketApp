@@ -32,11 +32,11 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         self.homePresenter.setDelegete(delegete: self)
         homePresenter.startConnection(url: url)
         segmentedControl.sizeToFit()
-        segmentedControl.tintColor = UIColor(red: 255.0/255.0, green: 149.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        segmentedControl.tintColor = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(self.selectViewBy(_:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
-//        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.clear
         var backgroundLayer = color.gradientLayer
         backgroundLayer.frame = view.bounds
         view.layer.addSublayer(backgroundLayer)
