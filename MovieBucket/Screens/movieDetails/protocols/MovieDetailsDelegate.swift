@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 protocol MovieDetailsDelegate {
     
     func passMovieDetails(movie : Movie)
@@ -17,5 +18,7 @@ protocol MovieDetailsDelegate {
     func setReview(movie: Movie)
     func getYoutubeJson (youtubeArrayID : [Video])
     func getReviewJson (reviewArray : [Review])
+    func fetchData (delegate: AppDelegate)
+    func populateMovie(moviesList: [NSManagedObject]) -> [Movie]
     
 }

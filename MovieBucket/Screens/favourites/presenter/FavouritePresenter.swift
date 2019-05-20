@@ -13,15 +13,17 @@ class FavouritePresenter : FavouritePresenterDelegate
 {
     
     var favouriteVC : FavouriteVCDelegate?
-    var movies = Array <Movie>()
+    
     func setDelegate(delegate: FavouriteVCDelegate) {
         favouriteVC = delegate
     }
     
     func fetchMovies (delegate: AppDelegate){
+        
         let managerContext = delegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
         do{
+            var movies = Array <Movie>()
             movies = populateMovie(moviesList: try managerContext.fetch(fetchRequest))
             favouriteVC?.setMovies(movieList: movies)
         }

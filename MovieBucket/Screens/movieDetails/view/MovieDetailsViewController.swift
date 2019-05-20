@@ -39,6 +39,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         
         
         
+        
     }
     
     func setMovieDetails(movie: Movie) {
@@ -104,10 +105,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func favouriteMovie(_ sender: UIButton) {
       
-        let fff = sender.currentTitleColor
+       
        if(sender.currentTitleColor==UIColor.yellow)
         {
-            
             movieDetailsPresenter.deleteFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
             sender.setTitleColor(UIColor.white, for: .normal)
             
