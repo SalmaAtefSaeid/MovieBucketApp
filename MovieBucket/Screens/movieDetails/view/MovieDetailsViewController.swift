@@ -34,7 +34,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         reviewTable.dataSource = self
         setView(movie: selectedMovie!)
         myScrollView.isScrollEnabled = true
-        myScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 700)
+        //myScrollView.alwaysBounceVertical = false
+        myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
     }
     
     func setMovieDetails(movie: Movie) {
@@ -42,13 +43,11 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func setView(movie: Movie){
-        var title = movie.title
-        movieTitle.text = title
+        movieTitle.text = movie.title
         movieOverview.text = movie.description
         dateTitle.text = movie.releaseDate
         movieVote.text=String(movie.userRating)+"/10"
-        var img = movie.myImage
-        Alamofire.request(img).responseImage { response in
+        Alamofire.request(movie.myImage).responseImage { response in
             if let image = response.result.value {
                 self.movieImage.image = image
             }
@@ -72,6 +71,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         case trailersTableView:
             var cell : TrailerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "trailerCell", for: indexPath) as! TrailerTableViewCell
             cell.videoName.text = videoList[indexPath.row].videoName
+            cell.imageView?.image = UIImage(named: "icons8-play-button-100.png")
             return cell
         case reviewTable:
             var cell : ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
@@ -80,7 +80,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             return cell
         default:
             var cell: UITableViewCell = UITableViewCell()
-                return cell
+            return cell
             
         }
         
@@ -94,8 +94,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         default:
             print("")
         }
-        
-        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     @IBAction func favouriteMovie(_ sender: UIButton) {
@@ -109,16 +110,21 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
             application.open(appUrl! as URL, options: [:], completionHandler: nil)
         }else{
             application.open(webUrl! as URL, options: [:], completionHandler: nil)
-            print(webUrl)
         }
     }
     func setVideo(videosList: [Video]) {
         videoList = videosList
-        trailersTableView.reloadData()
+        DispatchQueue.main.async {
+            self.trailersTableView.reloadData()
+        }
+        
     }
     func setReview(reviewList: [Review]) {
         self.reviewList = reviewList
-        reviewTable.reloadData()
+        DispatchQueue.main.async {
+            self.reviewTable.reloadData()
+        }
+        
     }
 
 }

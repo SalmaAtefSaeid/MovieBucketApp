@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 protocol FavouriteVCDelegate {
-    func setMovies(movieList: [NSManagedObject])
-    func populateMovie(movie: NSManagedObject) -> Movie
+    func setMovies(movieList: [Movie])
+//    func populateMovie(movie: NSManagedObject) -> Movie
 }

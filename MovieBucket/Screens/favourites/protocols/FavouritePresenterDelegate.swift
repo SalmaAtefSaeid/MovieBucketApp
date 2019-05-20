@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol FavouritePresenterDelegate
 {
     func fetchMovies (delegate: AppDelegate)
     func setDelegate(delegate: FavouriteVCDelegate)
+    func populateMovie(moviesList: [NSManagedObject]) -> [Movie]
     
 }

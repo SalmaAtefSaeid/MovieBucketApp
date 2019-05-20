@@ -21,6 +21,7 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     let segmentedControl = UISegmentedControl(items: ["Most popular", "Top rated"])
     var url: String = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
     var moviesArray = [Movie]()
+    let color = Color()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,11 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(self.selectViewBy(_:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
+//        view.backgroundColor = UIColor.clear
+        var backgroundLayer = color.gradientLayer
+        backgroundLayer.frame = view.bounds
+        view.layer.addSublayer(backgroundLayer)
+//        view.layer.insertSublayer(backgroundLayer, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
@@ -87,12 +93,15 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
 //        segue.destination as! MovieDetailsViewController
 //    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+//        let padding: CGFloat =  5
         let width = (self.view.frame.size.width - 8 * 2) / 2
         let height = width * 275 / 185
-//        let padding: CGFloat =  50
 //        let collectionViewSize = collectionView.frame.size.width - padding
 //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
         return CGSize(width: width, height: height)
     }
+    
 }
+
 
