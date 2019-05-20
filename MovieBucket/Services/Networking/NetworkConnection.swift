@@ -39,8 +39,7 @@ class NetworkConnection : NetworkProtocol{
         var moviesArray = [Movie]()
         for movie in moviesList
         {
-            let img = movie["poster_path"] as! String
-            let imageStringPath = "http://image.tmdb.org/t/p/w185" + img
+            let imageStringPath = "http://image.tmdb.org/t/p/w185\(movie["poster_path"] ?? "")"
 //            Alamofire.request(imageStringPath).responseData { response in
 //                if let data = response.data {
 //                   // print(data)
@@ -120,8 +119,4 @@ class NetworkConnection : NetworkProtocol{
         }
         return reviewList
     }
-    
-    
-    
-    
 }
