@@ -10,11 +10,13 @@ import Foundation
 import CoreData
 
 class MovieDetailsPresenter: MovieDetailsDelegate {
-   
     
     var homeDelegate : HomeDelegate?
     var movieDetailsVCDelegate: MovieDetailsViewControllerDelegate?
+    var favouritePresenter : FavouritePresenterDelegate = FavouritePresenter()
      var network : NetworkProtocol = NetworkConnection()
+    
+    
     
     init() {
 //        movieDetailsVCDelegate.setDelegate(delegete: self)
@@ -45,6 +47,7 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
         storedMovie.setValue(movie.description, forKey: "movieDescription")
         do{
             try managerContext.save()
+            favouritePresenter.notifyChange(delegate: degelate)
         }
         catch let error as NSError
         {
@@ -64,6 +67,23 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
         var movieID = String(movie.movieId)
         network.connectToGetReview(movieID: movieID)
     }
+    func deleteFavouriteMovie(degelate: AppDelegate, movie: Movie) {
+        let managerContext = degelate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
+        let myPredicate = NSPredicate(format: "movieID == \(movie.movieId)")
+        fetchRequest.predicate = myPredicate
+        do{
+            var movie = try managerContext.fetch(fetchRequest)
+            managerContext.delete(movie[0])
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    
     
     
 
