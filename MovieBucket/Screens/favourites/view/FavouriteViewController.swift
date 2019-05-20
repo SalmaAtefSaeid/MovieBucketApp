@@ -26,7 +26,10 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
     }
     func setMovies(movieList: [Movie]) {
         moviesList = movieList
-        favouriteCollectionView.reloadData()
+        DispatchQueue.main.async {
+             self.favouriteCollectionView.reloadData()
+        }
+       
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesList.count

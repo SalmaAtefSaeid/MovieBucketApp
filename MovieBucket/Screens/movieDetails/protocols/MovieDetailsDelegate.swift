@@ -12,6 +12,7 @@ protocol MovieDetailsDelegate {
     func passMovieDetails(movie : Movie)
     func setDelegete(delegete: MovieDetailsViewControllerDelegate)
     func setFavouriteMovie(degelate: AppDelegate, movie : Movie)
+    func deleteFavouriteMovie(degelate: AppDelegate, movie : Movie)
     func setTrailer(movie: Movie)
     func setReview(movie: Movie)
     func getYoutubeJson (youtubeArrayID : [Video])

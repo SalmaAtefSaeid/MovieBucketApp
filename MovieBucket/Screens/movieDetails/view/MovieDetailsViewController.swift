@@ -36,6 +36,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         myScrollView.isScrollEnabled = true
         //myScrollView.alwaysBounceVertical = false
         myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
+        
+        
+        
     }
     
     func setMovieDetails(movie: Movie) {
@@ -100,7 +103,22 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func favouriteMovie(_ sender: UIButton) {
-        movieDetailsPresenter.setFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
+      
+        let fff = sender.currentTitleColor
+       if(sender.currentTitleColor==UIColor.yellow)
+        {
+            
+            movieDetailsPresenter.deleteFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
+            sender.setTitleColor(UIColor.white, for: .normal)
+            
+        }
+        else if (sender.currentTitleColor==UIColor.white)
+        {
+             movieDetailsPresenter.setFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
+             sender.setTitleColor(UIColor.yellow, for: .normal)
+        }
+       
+        
     }
     func openYoutube(url: String){
         let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
