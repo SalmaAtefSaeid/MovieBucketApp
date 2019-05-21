@@ -14,6 +14,6 @@ protocol MovieDetailsViewControllerDelegate {
     func openYoutube(url: String)
     func setVideo(videosList: [Video])
     func setReview(reviewList : [Review])
-    
+    func setMovieAsFavourite (isAlreadyExist : Bool)
     
 }

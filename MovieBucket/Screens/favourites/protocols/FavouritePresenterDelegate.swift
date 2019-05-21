@@ -15,5 +15,6 @@ protocol FavouritePresenterDelegate
     func setDelegate(delegate: FavouriteVCDelegate)
     func populateMovie(moviesList: [NSManagedObject]) -> [Movie]
     func notifyChange (delegate: AppDelegate)
+   
     
 }

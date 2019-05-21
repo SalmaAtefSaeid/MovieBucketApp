@@ -20,5 +20,8 @@ protocol MovieDetailsDelegate {
     func getReviewJson (reviewArray : [Review])
     func fetchData (delegate: AppDelegate)
     func populateMovie(moviesList: [NSManagedObject]) -> [Movie]
+    func isFavourite(movie : Movie , delegate : AppDelegate)
+    func isMovieExist (isExist : Bool)
+    
     
 }

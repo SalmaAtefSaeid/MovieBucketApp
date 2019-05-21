@@ -11,6 +11,7 @@ import CoreData
 
 class FavouritePresenter : FavouritePresenterDelegate
 {
+   
     
     var favouriteVC : FavouriteVCDelegate?
     
@@ -45,6 +46,7 @@ class FavouritePresenter : FavouritePresenterDelegate
         fetchMovies(delegate : delegate)
         
     }
+    
     
     
     

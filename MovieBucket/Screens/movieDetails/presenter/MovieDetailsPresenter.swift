@@ -104,6 +104,35 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
         }
         return moviesArray
     }
+    func isFavourite(movie: Movie , delegate : AppDelegate) {
+        var checkExist : Bool = false
+        let managerContext = delegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
+        do{
+            var movies = Array <Movie>()
+            movies = populateMovie(moviesList: try managerContext.fetch(fetchRequest))
+            for newMovie in movies
+            {
+                if(newMovie.movieId == movie.movieId )
+                {
+                    isMovieExist(isExist: true)
+                    checkExist = true
+                }
+            }
+            if checkExist == false
+            {
+                isMovieExist(isExist: false)
+            }
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
+    }
+    func isMovieExist (isExist : Bool)
+    {
+        movieDetailsVCDelegate?.setMovieAsFavourite(isAlreadyExist : isExist)
+    }
     
 
     

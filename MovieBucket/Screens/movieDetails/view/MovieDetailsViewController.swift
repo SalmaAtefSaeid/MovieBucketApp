@@ -11,7 +11,10 @@ import Alamofire
 import AlamofireImage
 
 class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieDetailsViewControllerDelegate{
+   
     
+    
+    @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet var myScrollView: UIScrollView!
     @IBOutlet var reviewTable: UITableView!
     @IBOutlet var movieTitle: UILabel!
@@ -21,6 +24,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var dateTitle: UILabel!
     @IBOutlet var trailersTableView: UITableView!
     var movieDetailsPresenter: MovieDetailsDelegate = MovieDetailsPresenter()
+    
     var selectedMovie: Movie?
     var videoList = [Video]()
     var reviewList = [Review]()
@@ -37,13 +41,24 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         //myScrollView.alwaysBounceVertical = false
         myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
         
-        
-        
-        
+        movieDetailsPresenter.isFavourite(movie: selectedMovie!, delegate: appDelegate)
+       
     }
     
     func setMovieDetails(movie: Movie) {
         selectedMovie = movie
+        
+    }
+    func setMovieAsFavourite(isAlreadyExist : Bool) {
+        if( isAlreadyExist == true )
+        {
+            favouriteBtn.setTitleColor(UIColor.yellow, for: .normal)
+            
+        }
+        else
+        {
+             favouriteBtn.setTitleColor(UIColor.white, for: .normal)
+        }
     }
     
     func setView(movie: Movie){
