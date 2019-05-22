@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA07C40228F85DE0074A7B5 /* Color.swift */; };
+		3ABBE47C2294A7AD003C99D7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBE47B2294A7AD003C99D7 /* UIView+Extension.swift */; };
+		3ABBE47F2294AF12003C99D7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBE47E2294AF12003C99D7 /* SplashScreenViewController.swift */; };
 		4A2950EF229189FA00D16424 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950EE229189FA00D16424 /* Video.swift */; };
 		4A2950F1229192AF00D16424 /* icons8-play-button-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A2950F0229192AE00D16424 /* icons8-play-button-100.png */; };
 		4A2950F32291B16300D16424 /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2950F22291B16300D16424 /* ReviewTableViewCell.swift */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		3AA07C40228F85DE0074A7B5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		3ABBE47B2294A7AD003C99D7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3ABBE47E2294AF12003C99D7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		4A2950EE229189FA00D16424 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		4A2950F0229192AE00D16424 /* icons8-play-button-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-play-button-100.png"; sourceTree = "<group>"; };
 		4A2950F22291B16300D16424 /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +99,24 @@
 				DB2666ECA80E456B60EE91E6 /* Pods-MovieBucket.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		3ABBE47A2294A71D003C99D7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BAF8E77522883C700014EAF3 /* Main.storyboard */,
+				3AA07C40228F85DE0074A7B5 /* Color.swift */,
+				3ABBE47B2294A7AD003C99D7 /* UIView+Extension.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		3ABBE47D2294AD8B003C99D7 /* splashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3ABBE47E2294AF12003C99D7 /* SplashScreenViewController.swift */,
+			);
+			path = splashScreen;
 			sourceTree = "<group>";
 		};
 		4AD7EECC2289BE7A00B36B04 /* Networking */ = {
@@ -215,11 +237,11 @@
 		BAF8E78922884C0B0014EAF3 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3ABBE47D2294AD8B003C99D7 /* splashScreen */,
+				3ABBE47A2294A71D003C99D7 /* view */,
 				DEACA861228AB10900632BD4 /* movieDetails */,
 				DEACA863228AB19000632BD4 /* favourites */,
 				DEACA862228AB12400632BD4 /* home */,
-				BAF8E77522883C700014EAF3 /* Main.storyboard */,
-				3AA07C40228F85DE0074A7B5 /* Color.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -422,6 +444,7 @@
 				3AA07C41228F85DE0074A7B5 /* Color.swift in Sources */,
 				4AE99DA6228DC7C200FAA3D1 /* TrailerTableViewCell.swift in Sources */,
 				DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */,
+				3ABBE47F2294AF12003C99D7 /* SplashScreenViewController.swift in Sources */,
 				4A2950FB2291D76700D16424 /* FavouriteCollectionViewCell.swift in Sources */,
 				BA3F1BBB228F4F07003782E6 /* FavouritePresenter.swift in Sources */,
 				BA3F1BBD228F4F2F003782E6 /* FavouritePresenterDelegate.swift in Sources */,
@@ -429,6 +452,7 @@
 				BAF8E77222883C700014EAF3 /* AppDelegate.swift in Sources */,
 				DEB121FE228B1AB300EB7F66 /* HomePresenter.swift in Sources */,
 				4A2950F32291B16300D16424 /* ReviewTableViewCell.swift in Sources */,
+				3ABBE47C2294A7AD003C99D7 /* UIView+Extension.swift in Sources */,
 				4AE99DA4228DC27800FAA3D1 /* MovieDetailsViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

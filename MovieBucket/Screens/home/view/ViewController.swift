@@ -11,7 +11,7 @@ import SDWebImage
 import AlamofireImage
 import Alamofire
 
-class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDelegate, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController , ViewControllerDelegete, UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
 
    
     var moviesList :[Movie]?
@@ -22,6 +22,9 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     var url: String = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=f19893f85426e33ad5ea2a0301b009b9"
     var moviesArray = [Movie]()
     let color = Color()
+    var estimateWidth = 160.0
+    var cellMarginSize = 16.0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +39,10 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(self.selectViewBy(_:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
-        view.backgroundColor = UIColor.clear
-        var backgroundLayer = color.gradientLayer
-        backgroundLayer.frame = view.bounds
-        view.layer.addSublayer(backgroundLayer)
-//        view.layer.insertSublayer(backgroundLayer, at: 0)
+        view.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+//        collection.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+        setupGridView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func setMovie(moviesList: [Movie]) {
         self.moviesList = moviesList
@@ -92,16 +87,23 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
 ////        segue.destination.restorationIdentifier = "movieDetails"
 //        segue.destination as! MovieDetailsViewController
 //    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-//        let padding: CGFloat =  5
-        let width = (self.view.frame.size.width - 8 * 2) / 2
-        let height = width * 275 / 185
-//        let collectionViewSize = collectionView.frame.size.width - padding
-//        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
-        return CGSize(width: width, height: height)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+////        let width = (self.view.frame.size.width - 8 * 2) / 2
+////        let height = width * 275 / 185
+////        return CGSize(width: width, height: height)
+//        let width = self.calculateWith()
+//        let height = width * 275 / 185
+//        return CGSize(width: width, height: height)
+//    }
     
+    func setupGridView() {
+        let flow = collection.collectionViewLayout as! UICollectionViewFlowLayout
+        let width = (self.collection.frame.size.width - 20 )/2
+        let height = width * 275 / 185
+        flow.itemSize = CGSize(width: width, height: height)
+        flow.minimumInteritemSpacing = CGFloat(0)
+        flow.minimumLineSpacing = CGFloat(5)
+    }
 }
 
 
