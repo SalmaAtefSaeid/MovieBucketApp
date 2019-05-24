@@ -23,7 +23,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var movieOverview: UITextView!
     @IBOutlet var dateTitle: UILabel!
     @IBOutlet var trailersTableView: UITableView!
+    @IBOutlet var titleView: UIView!
+    @IBOutlet var overviewView: UIView!
+    @IBOutlet var reviewView: UIView!
+    @IBOutlet var trailerView: UIView!
     var movieDetailsPresenter: MovieDetailsDelegate = MovieDetailsPresenter()
+    
     
     var selectedMovie: Movie?
     var videoList = [Video]()
@@ -38,11 +43,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         reviewTable.dataSource = self
         setView(movie: selectedMovie!)
         myScrollView.isScrollEnabled = true
-        //myScrollView.alwaysBounceVertical = false
         myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
-        
         movieDetailsPresenter.isFavourite(movie: selectedMovie!, delegate: appDelegate)
-       
+        titleView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+        overviewView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+        trailerView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+        reviewView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
     }
     
     func setMovieDetails(movie: Movie) {
@@ -88,12 +94,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         switch tableView {
         
         case trailersTableView:
-            var cell : TrailerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "trailerCell", for: indexPath) as! TrailerTableViewCell
+            let cell : TrailerTableViewCell = tableView.dequeueReusableCell(withIdentifier: "trailerCell", for: indexPath) as! TrailerTableViewCell
             cell.videoName.text = videoList[indexPath.row].videoName
             cell.imageView?.image = UIImage(named: "icons8-play-button-100.png")
             return cell
         case reviewTable:
-            var cell : ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
+            let cell : ReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: "reviewCell", for: indexPath) as! ReviewTableViewCell
             cell.reviewAuthor.text = reviewList[indexPath.row].author
             cell.reviewContent.text=reviewList[indexPath.row].content
             return cell
