@@ -16,13 +16,13 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet var myScrollView: UIScrollView!
-    @IBOutlet var reviewTable: UITableView!
+    @IBOutlet var reviewTable: UITableView?
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieVote: UILabel!
     @IBOutlet var movieOverview: UITextView!
     @IBOutlet var dateTitle: UILabel!
-    @IBOutlet var trailersTableView: UITableView!
+    @IBOutlet var trailersTableView: UITableView?
     var movieDetailsPresenter: MovieDetailsDelegate = MovieDetailsPresenter()
     
     var selectedMovie: Movie?
@@ -32,10 +32,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        trailersTableView.delegate = self
-        trailersTableView.dataSource = self
-        reviewTable.delegate = self
-        reviewTable.dataSource = self
+        
+        trailersTableView?.delegate = self
+        trailersTableView?.dataSource = self
+        reviewTable?.delegate = self
+        reviewTable?.dataSource = self
+        
         setView(movie: selectedMovie!)
         myScrollView.isScrollEnabled = true
         //myScrollView.alwaysBounceVertical = false
@@ -44,6 +46,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         movieDetailsPresenter.isFavourite(movie: selectedMovie!, delegate: appDelegate)
        
     }
+    
     
     func setMovieDetails(movie: Movie) {
         selectedMovie = movie
@@ -148,14 +151,14 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func setVideo(videosList: [Video]) {
         videoList = videosList
         DispatchQueue.main.async {
-            self.trailersTableView.reloadData()
+            self.trailersTableView?.reloadData()
         }
         
     }
     func setReview(reviewList: [Review]) {
         self.reviewList = reviewList
         DispatchQueue.main.async {
-            self.reviewTable.reloadData()
+            self.reviewTable?.reloadData()
         }
         
     }

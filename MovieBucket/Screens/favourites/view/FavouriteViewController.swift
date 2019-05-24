@@ -43,7 +43,7 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : FavouriteCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "favCell", for: indexPath) as! FavouriteCollectionViewCell
+        let cell : FavouriteCollectionViewCell = collectionView.dequeueReusableCell (withReuseIdentifier: "favCell", for: indexPath) as! FavouriteCollectionViewCell
         var movieImageUrl = moviesList[indexPath.row].myImage as! String
         Alamofire.request(movieImageUrl).responseImage { response in
             if let image = response.result.value {
