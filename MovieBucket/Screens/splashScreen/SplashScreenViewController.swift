@@ -27,15 +27,19 @@ class SplashScreenViewController: UIViewController {
             self.moveBottom(view: self.imgAppIcon)
         }
         UIView.animate(withDuration: 2.0, delay: 0, options:[.repeat, .autoreverse], animations:{
-            self.moveBottom(view: self.popcorn)
-        })
+            self.movePopcornBottom(view: self.popcorn)
+        })        
     }
-    
     func moveTop(view: UIView){
         view.center.y -= 350
     }
     func moveBottom(view: UIView){
         view.center.y += 200
     }
-
+    func movePopcornTop(view: UIView){
+        view.center.y -= self.view.frame.size.height
+    }
+    func movePopcornBottom(view: UIView){
+        view.center.y += self.view.frame.size.height
+    }
 }

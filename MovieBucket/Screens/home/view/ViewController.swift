@@ -47,6 +47,14 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func setMovie(moviesList: [Movie]) {
         self.moviesList = moviesList
+        DispatchQueue.main.async {
+            self.collection.reloadData();
+        }
+    }
+    func showAlert(){
+        let alert = UIAlertController(title: "Please turn on wifi or cellular data", message: "It's recommended you turn on  before wifi or cellular data continuing.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return moviesList!.count

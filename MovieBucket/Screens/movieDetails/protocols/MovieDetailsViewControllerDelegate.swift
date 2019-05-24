@@ -15,5 +15,5 @@ protocol MovieDetailsViewControllerDelegate {
     func setVideo(videosList: [Video])
     func setReview(reviewList : [Review])
     func setMovieAsFavourite (isAlreadyExist : Bool)
-    
+    func showAlert()
 }

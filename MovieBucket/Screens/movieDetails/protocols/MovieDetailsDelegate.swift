@@ -22,6 +22,5 @@ protocol MovieDetailsDelegate {
     func populateMovie(moviesList: [NSManagedObject]) -> [Movie]
     func isFavourite(movie : Movie , delegate : AppDelegate)
     func isMovieExist (isExist : Bool)
-    
-    
+    func sendError()
 }

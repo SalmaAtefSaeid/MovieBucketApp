@@ -11,4 +11,5 @@ import Foundation
 protocol ViewControllerDelegete {
     
     func setMovie (moviesList: [Movie])
+    func showAlert()
 }
