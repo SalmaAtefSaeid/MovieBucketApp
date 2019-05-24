@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollectionViewDelegate, UICollectionViewDataSource{
+class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     
     @IBOutlet var favouriteCollectionView: UICollectionView!
     var favouritePresenter : FavouritePresenterDelegate = FavouritePresenter()
@@ -63,14 +63,32 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
         self.navigationController?.pushViewController(movieDetailsVC, animated:false)
     }
     
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = (self.view.frame.size.width - 8 * 2) / 2
+//        let height = width * 275 / 185
+//        //        let padding: CGFloat =  50
+//        //        let collectionViewSize = collectionView.frame.size.width - padding
+//        //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
+//        return CGSize(width: width, height: height)
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (self.view.frame.size.width - 8 * 2) / 2
-        let height = width * 275 / 185
-        //        let padding: CGFloat =  50
-        //        let collectionViewSize = collectionView.frame.size.width - padding
-        //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
-        return CGSize(width: width, height: height)
+        let yourWidth = collectionView.bounds.width/2.0
+        let yourHeight = yourWidth
+        
+        return CGSize(width: yourWidth, height: yourHeight)
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
    
 //    func populateMovie(movie: NSManagedObject) -> Movie{
 //        

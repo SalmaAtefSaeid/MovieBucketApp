@@ -29,6 +29,7 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+       
         moviesList = []
         collection.delegate = self
         collection.dataSource = self
@@ -42,7 +43,7 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         self.navigationItem.titleView = segmentedControl
 //        view.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
 //        collection.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
-        setupGridView()
+        //setupGridView()
     }
     
     func setMovie(moviesList: [Movie]) {
@@ -97,13 +98,30 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
 //        return CGSize(width: width, height: height)
 //    }
     
-    func setupGridView() {
-        let flow = collection.collectionViewLayout as! UICollectionViewFlowLayout
-        let width = (self.collection.frame.size.width - 20 )/2
-        let height = width * 275 / 185
-        flow.itemSize = CGSize(width: width, height: height)
-        flow.minimumInteritemSpacing = CGFloat(0)
-        flow.minimumLineSpacing = CGFloat(5)
+//    func setupGridView() {
+//        let flow = collection.collectionViewLayout as! UICollectionViewFlowLayout
+//        let width = (self.collection.frame.size.width - 20 )/2
+//        let height = width * 275 / 185
+//        flow.itemSize = CGSize(width: width, height: height)
+//        flow.minimumInteritemSpacing = CGFloat(0)
+//        flow.minimumLineSpacing = CGFloat(5)
+//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let yourWidth = collectionView.bounds.width/2.0
+        let yourHeight = yourWidth * 1.2
+        
+        return CGSize(width: yourWidth, height: yourHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
 

@@ -22,6 +22,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet var movieVote: UILabel!
     @IBOutlet var movieOverview: UITextView!
     @IBOutlet var dateTitle: UILabel!
+
     @IBOutlet var trailersTableView: UITableView!
     @IBOutlet var titleView: UIView!
     @IBOutlet var overviewView: UIView!
@@ -61,12 +62,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func setMovieAsFavourite(isAlreadyExist : Bool) {
         if( isAlreadyExist == true )
         {
-            favouriteBtn.setTitleColor(UIColor.yellow, for: .normal)
+            //favouriteBtn.setTitleColor(UIColor.yellow, for: .normal)
+            
+             favouriteBtn.setImage(UIImage(named: "heart_Fill.png"), for: .normal)
             
         }
         else
         {
-             favouriteBtn.setTitleColor(UIColor.white, for: .normal)
+            
+             favouriteBtn.setImage(UIImage(named: "heart_notFill.png"), for: .normal)
         }
     }
     
