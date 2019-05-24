@@ -16,7 +16,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var favouriteBtn: UIButton!
     @IBOutlet var myScrollView: UIScrollView!
-    @IBOutlet var reviewTable: UITableView!
+    @IBOutlet var reviewTable: UITableView?
     @IBOutlet var movieTitle: UILabel!
     @IBOutlet var movieImage: UIImageView!
     @IBOutlet var movieVote: UILabel!
@@ -37,10 +37,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        trailersTableView.delegate = self
-        trailersTableView.dataSource = self
-        reviewTable.delegate = self
-        reviewTable.dataSource = self
+        
+        trailersTableView?.delegate = self
+        trailersTableView?.dataSource = self
+        reviewTable?.delegate = self
+        reviewTable?.dataSource = self
+        
         setView(movie: selectedMovie!)
         myScrollView.isScrollEnabled = true
         myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
@@ -50,6 +52,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         trailerView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
         reviewView.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
     }
+    
     
     func setMovieDetails(movie: Movie) {
         selectedMovie = movie
@@ -159,14 +162,14 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func setVideo(videosList: [Video]) {
         videoList = videosList
         DispatchQueue.main.async {
-            self.trailersTableView.reloadData()
+            self.trailersTableView?.reloadData()
         }
         
     }
     func setReview(reviewList: [Review]) {
         self.reviewList = reviewList
         DispatchQueue.main.async {
-            self.reviewTable.reloadData()
+            self.reviewTable?.reloadData()
         }
         
     }
