@@ -609,6 +609,7 @@
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tw-fn-Tf1">
                                                 <rect key="frame" x="235" y="110" width="32" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <state key="normal" image="heart_notFill.png">
                                                     <color key="titleColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -712,32 +713,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popcorn.png" translatesAutoresizingMaskIntoConstraints="NO" id="HqQ-8A-FwE">
-                                <rect key="frame" x="124" y="30" width="157" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HqQ-8A-FwE">
+                                <rect key="frame" x="128.66666666666666" y="220" width="156.99999999999997" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Erj-Sb-05j"/>
+                                    <constraint firstAttribute="width" constant="157" id="tWw-Zi-d7i"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Bucket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koW-qj-z1w">
-                                <rect key="frame" x="155" y="705" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Bucket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koW-qj-z1w">
+                                <rect key="frame" x="143.66666666666666" y="362" width="126.99999999999997" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popcorn_clipart_png_1100373.png.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="J3I-rN-Yzq">
-                                <rect key="frame" x="289" y="31" width="80" height="74"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3I-rN-Yzq">
+                                <rect key="frame" x="293.66666666666663" y="31" width="60" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ujO-CW-Cja">
+                                <rect key="frame" x="20" y="31" width="60" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NYJ-oY-Vni">
+                                <rect key="frame" x="20" y="254" width="60" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MHi-Mj-u6D">
+                                <rect key="frame" x="309" y="254" width="60" height="60"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFE-f9-oib">
+                                <rect key="frame" x="34" y="465" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popcorn_clipart_png_1100373.png.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ujO-CW-Cja">
-                                <rect key="frame" x="36" y="31" width="80" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sgx-vw-euZ">
+                                <rect key="frame" x="309" y="493" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="w1q-lQ-qVQ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Qd7-lY-TSf" firstAttribute="bottom" secondItem="ujO-CW-Cja" secondAttribute="bottom" constant="500" id="1wb-gk-D8F"/>
+                            <constraint firstItem="Qd7-lY-TSf" firstAttribute="bottom" secondItem="Sgx-vw-euZ" secondAttribute="bottom" constant="183" id="2Hn-kc-hXg"/>
+                            <constraint firstItem="NYJ-oY-Vni" firstAttribute="centerY" secondItem="HqQ-8A-FwE" secondAttribute="centerY" id="4B8-eY-z1I"/>
+                            <constraint firstItem="HqQ-8A-FwE" firstAttribute="centerX" secondItem="lAn-BP-CdM" secondAttribute="centerX" id="6Vx-Er-z95"/>
+                            <constraint firstItem="Qd7-lY-TSf" firstAttribute="trailing" secondItem="J3I-rN-Yzq" secondAttribute="trailing" constant="45" id="80o-bA-n2z"/>
+                            <constraint firstItem="Qd7-lY-TSf" firstAttribute="bottom" secondItem="J3I-rN-Yzq" secondAttribute="bottom" constant="500" id="AmG-2P-Iok"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="top" secondItem="ujO-CW-Cja" secondAttribute="top" id="BuG-TC-wBy"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="trailing" secondItem="Sgx-vw-euZ" secondAttribute="trailing" id="Hrz-Sm-I1O"/>
+                            <constraint firstItem="HqQ-8A-FwE" firstAttribute="top" secondItem="Qd7-lY-TSf" secondAttribute="top" constant="200" id="IlY-QX-a5z"/>
+                            <constraint firstItem="HqQ-8A-FwE" firstAttribute="leading" secondItem="ujO-CW-Cja" secondAttribute="trailing" constant="8" symbolic="YES" id="QOy-ak-qkd"/>
+                            <constraint firstItem="ujO-CW-Cja" firstAttribute="leading" secondItem="lAn-BP-CdM" secondAttribute="leadingMargin" id="Sj3-Rz-fsO"/>
+                            <constraint firstItem="NYJ-oY-Vni" firstAttribute="bottom" secondItem="MHi-Mj-u6D" secondAttribute="bottom" id="TsB-VV-QXk"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="trailing" secondItem="MHi-Mj-u6D" secondAttribute="trailing" id="Yxj-fr-5eg"/>
+                            <constraint firstItem="NYJ-oY-Vni" firstAttribute="top" secondItem="ujO-CW-Cja" secondAttribute="bottom" constant="18" id="bDb-Vq-4BP"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="leading" secondItem="HqQ-8A-FwE" secondAttribute="trailing" constant="8" symbolic="YES" id="bVt-sO-gI5"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="leading" secondItem="Sgx-vw-euZ" secondAttribute="leading" id="cMN-7D-i3N"/>
+                            <constraint firstItem="Qd7-lY-TSf" firstAttribute="bottom" secondItem="koW-qj-z1w" secondAttribute="bottom" constant="350" id="h7K-TZ-NnC"/>
+                            <constraint firstItem="ujO-CW-Cja" firstAttribute="trailing" secondItem="NYJ-oY-Vni" secondAttribute="trailing" id="hmh-5m-3dy"/>
+                            <constraint firstItem="NYJ-oY-Vni" firstAttribute="top" secondItem="MHi-Mj-u6D" secondAttribute="top" id="jgH-oP-5Vd"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="leading" secondItem="MHi-Mj-u6D" secondAttribute="leading" id="kDg-cY-qU4"/>
+                            <constraint firstItem="J3I-rN-Yzq" firstAttribute="top" secondItem="Qd7-lY-TSf" secondAttribute="top" constant="11" id="o4M-9d-cMi"/>
+                            <constraint firstItem="ujO-CW-Cja" firstAttribute="leading" secondItem="NYJ-oY-Vni" secondAttribute="leading" id="r5s-tI-S7R"/>
+                            <constraint firstItem="koW-qj-z1w" firstAttribute="centerX" secondItem="lAn-BP-CdM" secondAttribute="centerX" id="s1k-b2-cB1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Qd7-lY-TSf"/>
                     </view>
                     <connections>
                         <outlet property="appName" destination="koW-qj-z1w" id="LOu-Xk-0AF"/>
                         <outlet property="imgAppIcon" destination="HqQ-8A-FwE" id="Zqw-J6-ncu"/>
-                        <outlet property="popcorn" destination="ujO-CW-Cja" id="K0N-9Z-KA8"/>
+                        <outlet property="popcorn1" destination="MHi-Mj-u6D" id="NbN-YK-DOj"/>
+                        <outlet property="popcorn2" destination="Sgx-vw-euZ" id="8te-GY-Bms"/>
                         <segue destination="ETN-qW-dJq" kind="presentation" identifier="homeScreen" id="AML-Xo-R3B"/>
                     </connections>
                 </viewController>
@@ -18961,8 +19004,6 @@ m4EAEJuOABCbkwAQm5sAEJueABCbowAQm6sAEJuuABCbwAAQm8MAEJvIAAAAAAAABAEAAAAAAAAAVgAA
 AAAAAAAAAAAAAAAQm8o
 </mutableData>
         </image>
-        <image name="popcorn.png" width="1024" height="1024"/>
-        <image name="popcorn_clipart_png_1100373.png.jpeg" width="840" height="981"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

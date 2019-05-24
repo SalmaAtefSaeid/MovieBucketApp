@@ -19,7 +19,7 @@
 		4A368C2B229854EF00CA912F /* poster-placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A368C2A229854EF00CA912F /* poster-placeholder.jpg */; };
 		4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A4D8CDB228C891C006D1A6E /* tangled.jpg */; };
 		4AB2BB862295CDF6008CFA9E /* popcorn.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2BB852295CDF6008CFA9E /* popcorn.png */; };
-		4AB2BB882295CF38008CFA9E /* popcorn_clipart_png_1100373.png.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2BB872295CF38008CFA9E /* popcorn_clipart_png_1100373.png.jpeg */; };
+		4AB2BB882295CF38008CFA9E /* singlePopcorn.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4AB2BB872295CF38008CFA9E /* singlePopcorn.jpeg */; };
 		4AD7EECE2289E6AB00B36B04 /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */; };
 		4AE99DA0228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */; };
 		4AE99DA2228DC20400FAA3D1 /* MovieDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE99DA1228DC20400FAA3D1 /* MovieDetailsDelegate.swift */; };
@@ -60,7 +60,7 @@
 		4A368C2A229854EF00CA912F /* poster-placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "poster-placeholder.jpg"; sourceTree = "<group>"; };
 		4A4D8CDB228C891C006D1A6E /* tangled.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tangled.jpg; sourceTree = "<group>"; };
 		4AB2BB852295CDF6008CFA9E /* popcorn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popcorn.png; sourceTree = "<group>"; };
-		4AB2BB872295CF38008CFA9E /* popcorn_clipart_png_1100373.png.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = popcorn_clipart_png_1100373.png.jpeg; sourceTree = "<group>"; };
+		4AB2BB872295CF38008CFA9E /* singlePopcorn.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = singlePopcorn.jpeg; sourceTree = "<group>"; };
 		4AD7EECD2289E6AB00B36B04 /* NetworkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConnection.swift; sourceTree = "<group>"; };
 		4AE99D9F228DC1EA00FAA3D1 /* MovieDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsPresenter.swift; sourceTree = "<group>"; };
 		4AE99DA1228DC20400FAA3D1 /* MovieDetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDelegate.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 				DEC26CE6229861E3004276F4 /* home-32.png */,
 				DEC26CE222985838004276F4 /* iconfinder_home_blue_68743.png */,
 				4A368C2A229854EF00CA912F /* poster-placeholder.jpg */,
-				4AB2BB872295CF38008CFA9E /* popcorn_clipart_png_1100373.png.jpeg */,
+				4AB2BB872295CF38008CFA9E /* singlePopcorn.jpeg */,
 				4AB2BB852295CDF6008CFA9E /* popcorn.png */,
 				4A2950F0229192AE00D16424 /* icons8-play-button-100.png */,
 				4A4D8CDB228C891C006D1A6E /* tangled.jpg */,
@@ -398,7 +398,7 @@
 				BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */,
 				DEC26CE7229861E3004276F4 /* home-32.png in Resources */,
 				DEC26CE322985839004276F4 /* iconfinder_home_blue_68743.png in Resources */,
-				4AB2BB882295CF38008CFA9E /* popcorn_clipart_png_1100373.png.jpeg in Resources */,
+				4AB2BB882295CF38008CFA9E /* singlePopcorn.jpeg in Resources */,
 				4A368C2B229854EF00CA912F /* poster-placeholder.jpg in Resources */,
 				4AB2BB862295CDF6008CFA9E /* popcorn.png in Resources */,
 			);
