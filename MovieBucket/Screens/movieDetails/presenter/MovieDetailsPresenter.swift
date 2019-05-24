@@ -13,13 +13,9 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
   
     var homeDelegate : HomeDelegate?
     var movieDetailsVCDelegate: MovieDetailsViewControllerDelegate?
-    var favouritePresenter : FavouritePresenterDelegate = FavouritePresenter()
-     var network : NetworkProtocol = NetworkConnection()
-    
-    
+    var network : NetworkProtocol = NetworkConnection()
     
     init() {
-//        movieDetailsVCDelegate.setDelegate(delegete: self)
         network.setMovieDetailsDelegete(delegete: self)
     }
     
@@ -27,13 +23,16 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
        movieDetailsVCDelegate = delegete
     }
     func passMovieDetails(movie: Movie) {
-        movieDetailsVCDelegate!.setMovieDetails(movie: movie)
+        movieDetailsVCDelegate?.setMovieDetails(movie: movie)
         setTrailer(movie: movie)
         setReview(movie: movie)
     }
     func setTrailer(movie: Movie){
         var movieID = String(movie.movieId)
         network.connectToGetYoutubeID(movieID: movieID)
+    }
+    func sendError(){
+        movieDetailsVCDelegate?.showAlert()
     }
     func setFavouriteMovie(degelate: AppDelegate, movie : Movie) {
         let managerContext = degelate.persistentContainer.viewContext
@@ -133,15 +132,4 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
     {
         movieDetailsVCDelegate?.setMovieAsFavourite(isAlreadyExist : isExist)
     }
-    
-
-    
-    
-    
-    
-    
-    
-
-    
-    
 }

@@ -14,4 +14,5 @@ protocol HomeDelegate {
     func fetchMovie(moviesList: [Movie])
     func setDelegete(delegete: ViewController)
     func sendMovieDetails(movie : Movie)
+    func sendError()
 }

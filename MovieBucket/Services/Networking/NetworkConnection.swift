@@ -25,11 +25,14 @@ class NetworkConnection : NetworkProtocol{
        var moviesArray : [Movie]?
         Alamofire.request(url).responseJSON{
             response in
-            if let json = response.result.value as! [String:Any]?
-            {
-                let movies = json["results"] as! [[String:Any]]?
+            switch response.result {
+            case .success:
+                let json = response.result.value as! [String:Any]?
+                let movies = json!["results"] as! [[String:Any]]?
                 moviesArray = self.parseJson(moviesList: movies!)
                 self.homeDelegete?.fetchMovie(moviesList: moviesArray!)
+            case .failure(let error):
+                self.homeDelegete?.sendError()
             }
         }
     }
@@ -50,12 +53,14 @@ class NetworkConnection : NetworkProtocol{
         var youtubeIDArray : [Video]?
         Alamofire.request(url).responseJSON{
             response in
-            if let json = response.result.value as! [String:Any]?
-            {
-                let youtubeJson = json["results"] as! [[String:Any]]?
-                youtubeIDArray = self.parseYoutubeID(json:youtubeJson!)
+            switch response.result {
+            case .success:
+                let json = response.result.value as! [String:Any]?
+                let youtubeJson = json!["results"]
+                youtubeIDArray = self.parseYoutubeID(json:youtubeJson! as! [[String : Any]])
                 self.movieDetailsPresenter?.getYoutubeJson(youtubeArrayID: youtubeIDArray!)
-                
+            case .failure(let error):
+                self.movieDetailsPresenter?.sendError()
             }
             
         }
@@ -65,10 +70,8 @@ class NetworkConnection : NetworkProtocol{
         var youtubeIDs = [Video]()
         for video in json
         {
-           
             let newVideo = Video (videoID: video["key"] as! String, videoName: video["name"] as! String)
             youtubeIDs.append(newVideo)
-            
         }
         return youtubeIDs
     }
@@ -77,14 +80,15 @@ class NetworkConnection : NetworkProtocol{
         var reviewsArray : [Review]?
         Alamofire.request(url).responseJSON{
             response in
-            if let json = response.result.value as! [String:Any]?
-            {
-                let reviewJson = json["results"] as! [[String:Any]]?
+            switch response.result {
+            case .success:
+                let json = response.result.value as! [String:Any]?
+                let reviewJson = json!["results"] as! [[String:Any]]?
                 reviewsArray = self.parseReview(json: reviewJson!)
-                    self.movieDetailsPresenter?.getReviewJson(reviewArray: reviewsArray!)
-                
+                self.movieDetailsPresenter?.getReviewJson(reviewArray: reviewsArray!)
+            case .failure(let error):
+                print(error)
             }
-            
         }
     }
     
@@ -92,10 +96,8 @@ class NetworkConnection : NetworkProtocol{
         var reviewList = [Review]()
         for review in json
         {
-           
             let newReview = Review (author: review["author"] as! String, content: review["content"] as! String)
             reviewList.append(newReview)
-            
         }
         return reviewList
     }

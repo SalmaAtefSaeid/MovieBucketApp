@@ -59,12 +59,18 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         selectedMovie = movie
         
     }
+    func showAlert(){
+        let alert = UIAlertController(title: "Please turn on wifi or cellular data", message: "It's recommended you turn on  before wifi or cellular data continuing.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
     func setMovieAsFavourite(isAlreadyExist : Bool) {
         if( isAlreadyExist == true )
         {
             //favouriteBtn.setTitleColor(UIColor.yellow, for: .normal)
             
              favouriteBtn.setImage(UIImage(named: "heart_Fill.png"), for: .normal)
+
             
         }
         else

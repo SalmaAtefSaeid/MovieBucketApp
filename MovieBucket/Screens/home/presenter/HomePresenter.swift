@@ -25,9 +25,11 @@ class HomePresenter : HomeDelegate {
     
     func fetchMovie(moviesList: [Movie]) {
         viewController?.setMovie(moviesList: moviesList)
-        self.viewController?.collection.reloadData();
     }
     func sendMovieDetails(movie: Movie) {
         movieDetailsPresenter.passMovieDetails(movie: movie)
+    }
+    func sendError(){
+        viewController?.showAlert()
     }
 }
