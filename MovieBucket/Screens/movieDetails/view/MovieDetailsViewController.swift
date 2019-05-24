@@ -67,16 +67,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func setMovieAsFavourite(isAlreadyExist : Bool) {
         if( isAlreadyExist == true )
         {
-            //favouriteBtn.setTitleColor(UIColor.yellow, for: .normal)
-            
-             favouriteBtn.setImage(UIImage(named: "heart_Fill.png"), for: .normal)
+            favouriteBtn.setTitle("★", for: .normal)
+            favouriteBtn.setTitleColor(Color.golden, for: .normal)
 
             
         }
         else
         {
-            
-             favouriteBtn.setImage(UIImage(named: "heart_notFill.png"), for: .normal)
+            favouriteBtn.setTitle("☆", for: .normal)
+            favouriteBtn.setTitleColor(Color.golden, for: .normal)
         }
     }
     
@@ -140,16 +139,18 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func favouriteMovie(_ sender: UIButton) {
       
        
-       if(sender.currentTitleColor==UIColor.yellow)
+       if(sender.currentTitle=="★")
         {
             movieDetailsPresenter.deleteFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
-            sender.setTitleColor(UIColor.white, for: .normal)
+            favouriteBtn.setTitle("☆", for: .normal)
+            favouriteBtn.setTitleColor(Color.golden, for: .normal)
             
         }
-        else if (sender.currentTitleColor==UIColor.white)
+        else if (sender.currentTitle=="☆")
         {
              movieDetailsPresenter.setFavouriteMovie(degelate: appDelegate, movie: selectedMovie!)
-             sender.setTitleColor(UIColor.yellow, for: .normal)
+            favouriteBtn.setTitle("★", for: .normal)
+            favouriteBtn.setTitleColor(Color.golden, for: .normal)
         }
        
         
