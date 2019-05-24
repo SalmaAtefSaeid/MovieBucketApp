@@ -24,6 +24,7 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
         favouritePresenter.setDelegate(delegate: self)
         favouritePresenter.fetchMovies(delegate: appDelegate)
         self.favouriteCollectionView.reloadData()
+        setupGridView()
     
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -71,18 +72,13 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
 //        //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
 //        return CGSize(width: width, height: height)
 //    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let yourWidth = collectionView.bounds.width/2.0
-        let yourHeight = yourWidth
-        
-        return CGSize(width: yourWidth, height: yourHeight)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+    func setupGridView() {
+        let flow = favouriteCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let width = (self.favouriteCollectionView.frame.size.width - 20 )/2
+        let height = width * 275 / 185
+        flow.itemSize = CGSize(width: width, height: height)
+        flow.minimumInteritemSpacing = CGFloat(0)
+        flow.minimumLineSpacing = CGFloat(5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

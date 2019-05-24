@@ -42,9 +42,7 @@
 		DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */; };
 		DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */; };
 		DEB12206228B429C00EB7F66 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */; };
-		DEC26CE322985839004276F4 /* iconfinder_home_blue_68743.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC26CE222985838004276F4 /* iconfinder_home_blue_68743.png */; };
 		DEC26CE7229861E3004276F4 /* home-32.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC26CE6229861E3004276F4 /* home-32.png */; };
-		DEC26CEC22987883004276F4 /* heart_Fill.png in Resources */ = {isa = PBXBuildFile; fileRef = DEC26CEB22987883004276F4 /* heart_Fill.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,10 +85,7 @@
 		DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegete.swift; sourceTree = "<group>"; };
 		DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		DEC26CE222985838004276F4 /* iconfinder_home_blue_68743.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconfinder_home_blue_68743.png; path = ../../../Downloads/iconfinder_home_blue_68743.png; sourceTree = "<group>"; };
 		DEC26CE6229861E3004276F4 /* home-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home-32.png"; sourceTree = "<group>"; };
-		DEC26CEA2298781C004276F4 /* heart_notFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart_notFill.png; path = "/Users/jetsmobilelab-3/Desktop/IOS_MovieProject/MovieBucketApp/heart_notFill.png"; sourceTree = "<absolute>"; };
-		DEC26CEB22987883004276F4 /* heart_Fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heart_Fill.png; path = "../../../Downloads/Heart Filled-50-32px-2/heart_Fill.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,10 +200,7 @@
 		BAF8E76522883C6E0014EAF3 = {
 			isa = PBXGroup;
 			children = (
-				DEC26CEA2298781C004276F4 /* heart_notFill.png */,
-				DEC26CEB22987883004276F4 /* heart_Fill.png */,
 				DEC26CE6229861E3004276F4 /* home-32.png */,
-				DEC26CE222985838004276F4 /* iconfinder_home_blue_68743.png */,
 				4A368C2A229854EF00CA912F /* poster-placeholder.jpg */,
 				4AB2BB872295CF38008CFA9E /* singlePopcorn.jpeg */,
 				4AB2BB852295CDF6008CFA9E /* popcorn.png */,
@@ -390,14 +382,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEC26CEC22987883004276F4 /* heart_Fill.png in Resources */,
 				BAF8E77F22883C720014EAF3 /* LaunchScreen.storyboard in Resources */,
 				4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */,
 				4A2950F1229192AF00D16424 /* icons8-play-button-100.png in Resources */,
 				BAF8E77C22883C720014EAF3 /* Assets.xcassets in Resources */,
 				BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */,
 				DEC26CE7229861E3004276F4 /* home-32.png in Resources */,
-				DEC26CE322985839004276F4 /* iconfinder_home_blue_68743.png in Resources */,
 				4AB2BB882295CF38008CFA9E /* singlePopcorn.jpeg in Resources */,
 				4A368C2B229854EF00CA912F /* poster-placeholder.jpg in Resources */,
 				4AB2BB862295CDF6008CFA9E /* popcorn.png in Resources */,
