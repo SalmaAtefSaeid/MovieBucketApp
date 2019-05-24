@@ -12,22 +12,23 @@ class SplashScreenViewController: UIViewController {
 
     @IBOutlet var imgAppIcon: UIImageView!
     @IBOutlet var appName: UILabel!
+    @IBOutlet var popcorn: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imgAppIcon.image = UIImage(named: "tangled.jpg")
-
-        // Do any additional setup after loading the view.
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2){
+            self.performSegue(withIdentifier: "homeScreen", sender: nil)
+        }
         UIView.animate(withDuration: 2.0) {
             self.moveTop(view: self.appName)
         }
         UIView.animate(withDuration: 2.0) {
             self.moveBottom(view: self.imgAppIcon)
         }
-//        UIView.animate(withDuration: 2.0, delay: 0, options:[.repeat, .autoreverse], animation:{
-//    self.moveTop(view: self.label)
-//    })
+        UIView.animate(withDuration: 2.0, delay: 0, options:[.repeat, .autoreverse], animations:{
+            self.moveBottom(view: self.popcorn)
+        })
     }
     
     func moveTop(view: UIView){

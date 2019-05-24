@@ -35,11 +35,12 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
         self.homePresenter.setDelegete(delegete: self)
         homePresenter.startConnection(url: url)
         segmentedControl.sizeToFit()
-        segmentedControl.tintColor = UIColor(red: 255.0/255.0, green: 94.0/255.0, blue: 58.0/255.0, alpha: 1.0)
+        segmentedControl.tintColor = Color.darkOrange
+//        segmentedControl.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(self.selectViewBy(_:)), for: .valueChanged)
         self.navigationItem.titleView = segmentedControl
-        view.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
+//        view.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
 //        collection.setGradientBackground(colorOne: Color.darkOrange, colorTwo: Color.lightOrange)
         setupGridView()
     }
@@ -77,7 +78,7 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         movieSelected = moviesList![indexPath.row]
         
-        var movieDetailsVC: MovieDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetails") as! MovieDetailsViewController
+        let movieDetailsVC: MovieDetailsViewController = self.storyboard?.instantiateViewController(withIdentifier: "movieDetails") as! MovieDetailsViewController
         movieDetailsVC.movieDetailsPresenter.setDelegete(delegete: movieDetailsVC)
         movieDetailsVC.movieDetailsPresenter.passMovieDetails(movie: movieSelected!)
         //homePresenter.sendMovieDetails(movie: movieSelected!)
