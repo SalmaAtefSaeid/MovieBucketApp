@@ -35,31 +35,12 @@ class NetworkConnection : NetworkProtocol{
     }
     
     func parseJson(moviesList: [[String : Any]]) -> [Movie]{
-//        var imageData: Data?
         var moviesArray = [Movie]()
         for movie in moviesList
         {
             let imageStringPath = "http://image.tmdb.org/t/p/w185\(movie["poster_path"] ?? "")"
-//            Alamofire.request(imageStringPath).responseData { response in
-//                if let data = response.data {
-//                   // print(data)
-//                    imageData = data
-//
-//                }
-//            }
-//            Alamofire.download(imageStringPath)
-//                .downloadProgress { progress in
-//                    print("Download Progress: \(progress.fractionCompleted)")
-//                }
-//                .responseData { response in
-//                    if let data = response.result.value {
-//                        imageData = data
-//                    }
-//            }
             let newMovie = Movie (movieId: movie["id"] as! Int32, title: movie["original_title"] as! String, myImage: imageStringPath , description: movie["overview"] as! String, releaseDate: movie["release_date"] as! String, userRating: Int32(movie["vote_average"] as! NSNumber))
             moviesArray.append(newMovie)
-            
-            
         }
         return moviesArray
         
@@ -73,7 +54,6 @@ class NetworkConnection : NetworkProtocol{
             {
                 let youtubeJson = json["results"] as! [[String:Any]]?
                 youtubeIDArray = self.parseYoutubeID(json:youtubeJson!)
-                
                 self.movieDetailsPresenter?.getYoutubeJson(youtubeArrayID: youtubeIDArray!)
                 
             }
