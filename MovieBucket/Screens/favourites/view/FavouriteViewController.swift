@@ -23,6 +23,13 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
         favouriteCollectionView.delegate = self
         favouritePresenter.setDelegate(delegate: self)
         favouritePresenter.fetchMovies(delegate: appDelegate)
+        self.favouriteCollectionView.reloadData()
+    
+    }
+    override func viewWillAppear(_ animated: Bool) {
+    
+        favouritePresenter.fetchMovies(delegate: appDelegate)
+         self.favouriteCollectionView.reloadData()
     }
     func setMovies(movieList: [Movie]) {
         moviesList = movieList
@@ -63,6 +70,7 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
         //        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
         return CGSize(width: width, height: height)
     }
+   
 //    func populateMovie(movie: NSManagedObject) -> Movie{
 //        
 //        var movie = Movie(movieId: movie.value(forKey: "movieID") as! Int32 , title: movie.value(forKey: "title") as! String, myImage: movie.value(forKey: "myImage") as! String, description: movie.value(forKey: "movieDescription") as! String, releaseDate: movie.value(forKey: "releaseDate") as! String, userRating: movie.value(forKey: "userRating") as! Int32)

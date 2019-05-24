@@ -12,4 +12,5 @@ import CoreData
 protocol FavouriteVCDelegate {
     func setMovies(movieList: [Movie])
 //    func populateMovie(movie: NSManagedObject) -> Movie
+  
 }

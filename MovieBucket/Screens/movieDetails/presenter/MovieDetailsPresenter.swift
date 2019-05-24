@@ -47,7 +47,6 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
         storedMovie.setValue(movie.description, forKey: "movieDescription")
         do{
             try managerContext.save()
-            favouritePresenter.notifyChange(delegate: degelate)
         }
         catch let error as NSError
         {
@@ -70,12 +69,13 @@ class MovieDetailsPresenter: MovieDetailsDelegate {
     func deleteFavouriteMovie(degelate: AppDelegate, movie: Movie) {
         let managerContext = degelate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
-        let myPredicate = NSPredicate(format: "movieID == \(movie.movieId)")
-        fetchRequest.predicate = myPredicate
+        fetchRequest.predicate = NSPredicate(format: "movieID == %i" ,(movie.movieId))
         do{
-            var movie = try managerContext.fetch(fetchRequest)
-            managerContext.delete(movie[0])
-            favouritePresenter.notifyChange(delegate: degelate)
+            let fetchedMovie = try managerContext.fetch(fetchRequest)
+            for item in fetchedMovie{
+                managerContext.delete(item)
+            }
+            try  managerContext.save()
         }
         catch let error as NSError
         {
