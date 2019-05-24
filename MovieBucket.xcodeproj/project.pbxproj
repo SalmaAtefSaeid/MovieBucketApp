@@ -39,6 +39,7 @@
 		DEB12202228B1C3F00EB7F66 /* HomeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */; };
 		DEB12204228B3F0D00EB7F66 /* ViewControllerDelegete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */; };
 		DEB12206228B429C00EB7F66 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */; };
+		DED079482295C82A007D91AB /* poster-placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = DED079472295C829007D91AB /* poster-placeholder.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		DEB12201228B1C3F00EB7F66 /* HomeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDelegate.swift; sourceTree = "<group>"; };
 		DEB12203228B3F0D00EB7F66 /* ViewControllerDelegete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegete.swift; sourceTree = "<group>"; };
 		DEB12205228B429C00EB7F66 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DED079472295C829007D91AB /* poster-placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "poster-placeholder.jpg"; path = "../../../Downloads/poster-placeholder.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 		BAF8E76522883C6E0014EAF3 = {
 			isa = PBXGroup;
 			children = (
+				DED079472295C829007D91AB /* poster-placeholder.jpg */,
 				4A2950F0229192AE00D16424 /* icons8-play-button-100.png */,
 				4A4D8CDB228C891C006D1A6E /* tangled.jpg */,
 				BAF8E77022883C6F0014EAF3 /* MovieBucket */,
@@ -374,6 +377,7 @@
 				4A4D8CDC228C891D006D1A6E /* tangled.jpg in Resources */,
 				4A2950F1229192AF00D16424 /* icons8-play-button-100.png in Resources */,
 				BAF8E77C22883C720014EAF3 /* Assets.xcassets in Resources */,
+				DED079482295C82A007D91AB /* poster-placeholder.jpg in Resources */,
 				BAF8E77722883C700014EAF3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

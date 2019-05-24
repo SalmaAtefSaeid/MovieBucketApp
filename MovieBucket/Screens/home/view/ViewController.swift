@@ -53,12 +53,12 @@ class ViewController: UIViewController , ViewControllerDelegete, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : ImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-//         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "tangled.jpg"))
-        Alamofire.request(self.moviesList![indexPath.row].myImage).responseImage { response in
+         cell.movieImageView.sd_setImage(with: URL(string: moviesList![indexPath.row].myImage), placeholderImage: UIImage(named: "poster-placeholder.jpg"))
+     /*   Alamofire.request(self.moviesList![indexPath.row].myImage).responseImage { response in
             if let image = response.result.value {
                 cell.movieImageView.image = image
             }
-        }
+        }*/
 //        cell.movieImageView.image = UIImage.init(data: moviesList![indexPath.row].myImage)
         return cell
     }

@@ -42,10 +42,6 @@ class FavouritePresenter : FavouritePresenterDelegate
         }
         return moviesArray
     }
-    func notifyChange(delegate: AppDelegate) {
-        fetchMovies(delegate : delegate)
-        
-    }
     
     
     
