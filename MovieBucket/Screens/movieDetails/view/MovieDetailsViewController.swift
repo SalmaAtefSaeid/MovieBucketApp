@@ -43,7 +43,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         trailersTableView?.dataSource = self
         reviewTable?.delegate = self
         reviewTable?.dataSource = self
-        
         setView(movie: selectedMovie!)
         myScrollView.isScrollEnabled = true
         myScrollView.contentSize = CGSize(width: self.view.frame.width, height: 1000)
@@ -61,7 +60,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     }
     func showAlert(){
         let alert = UIAlertController(title: "Please turn on wifi or cellular data", message: "It's recommended you turn on  before wifi or cellular data continuing.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
     func setMovieAsFavourite(isAlreadyExist : Bool) {
@@ -84,11 +83,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
         movieOverview.text = movie.description
         dateTitle.text = movie.releaseDate
         movieVote.text=String(movie.userRating)+"/10"
-        Alamofire.request(movie.myImage).responseImage { response in
-            if let image = response.result.value {
-                self.movieImage.image = image
-            }
-        }
+        movieImage.sd_setImage(with: URL(string: movie.myImage), placeholderImage: UIImage(named: "poster-placeholder.jpg"))
+//        Alamofire.request(movie.myImage).responseImage { response in
+//            if let image = response.result.value {
+//                self.movieImage.image = image
+//            }
+//        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -125,7 +125,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView {
         case trailersTableView:
-            openYoutube(url: videoList[indexPath.row].videoID)
+            openYoutube(videoID: videoList[indexPath.row].videoID)
         case reviewTable:
            print(reviewList[indexPath.row].author)
         default:
@@ -155,9 +155,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDelegate, UITable
        
         
     }
-    func openYoutube(url: String){
-        let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(url)")
-        let webUrl = NSURL(string: "https://www.youtube.com/watch?v=\(url)")
+    func openYoutube(videoID: String){
+        let appUrl = NSURL(string: "youtube://www.youtube.com/watch?v=\(videoID)")
+        let webUrl = NSURL(string: "https://www.youtube.com/watch?v=\(videoID)")
         let application = UIApplication.shared
         if application.canOpenURL(appUrl! as URL){
             application.open(appUrl! as URL, options: [:], completionHandler: nil)

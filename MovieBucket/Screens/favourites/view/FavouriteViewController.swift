@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
+class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
     
     @IBOutlet var favouriteCollectionView: UICollectionView!
     var favouritePresenter : FavouritePresenterDelegate = FavouritePresenter()
@@ -46,12 +46,13 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         let cell : FavouriteCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "favCell", for: indexPath) as! FavouriteCollectionViewCell
-        let movieImageUrl = moviesList[indexPath.row].myImage as! String
-        Alamofire.request(movieImageUrl).responseImage { response in
-            if let image = response.result.value {
-                cell.movieImage.image = image
-            }
-        }
+        let movieImageUrl = moviesList[indexPath.row].myImage
+        cell.movieImage.sd_setImage(with: URL(string: movieImageUrl), placeholderImage: UIImage(named: "poster-placeholder.jpg"))
+//        Alamofire.request(movieImageUrl).responseImage { response in
+//            if let image = response.result.value {
+//                cell.movieImage.image = image
+//            }
+//        }
         return cell
     }
     
@@ -87,7 +88,6 @@ class FavouriteViewController: UIViewController, FavouriteVCDelegate, UICollecti
     
    
 //    func populateMovie(movie: NSManagedObject) -> Movie{
-//        
 //        var movie = Movie(movieId: movie.value(forKey: "movieID") as! Int32 , title: movie.value(forKey: "title") as! String, myImage: movie.value(forKey: "myImage") as! String, description: movie.value(forKey: "movieDescription") as! String, releaseDate: movie.value(forKey: "releaseDate") as! String, userRating: movie.value(forKey: "userRating") as! Int32)
 //        return movie
 //    }
